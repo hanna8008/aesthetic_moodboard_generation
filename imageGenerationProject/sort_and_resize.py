@@ -6,9 +6,9 @@ from PIL import Image
 import shutil
 
 #Settings
-original_image_directory = "data/moods/all_images"
-metadata_file = "data/attributes_df.json"
-output_base_directory = "data/sorted"
+original_image_directory = "imageGenerationProject/data/moods/all_images"
+metadata_file = "imageGenerationProject/data/attributes_df.json"
+output_base_directory = "imageGenerationProject/data/sorted"
 resize_to= (128, 128)
 
 
