@@ -1,7 +1,8 @@
 # aesthetic_moodboard_generation
 
 ## Image Source: ##
-
+### Title: Pexels 110k 512p JPEG ###
+https://www.kaggle.com/datasets/innominate817/pexels-110k-512p-min-jpg
 
 ## Model architecture(s): ##
 For this project, I will create a Conditional Variational Autoencoder (CVAE) and train it from scratch. Compared to a basic VAE, the CVAE will allow me to generate new images based on a provided label or condition (i.e. mood category ).
