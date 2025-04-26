@@ -1,0 +1,10 @@
+#ignore dataset folders
+data/
+*.jpg
+*.jpeg
+*.png
+
+#ignore other big stuff
+*.DS_Store
+--pycache__/
+.ipynb_checkpoints/
