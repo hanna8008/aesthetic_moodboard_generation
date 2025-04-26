@@ -4,10 +4,19 @@ import os
 import json 
 from PIL import Image
 import shutil
+import kagglehub
+
+# Download latest version
+path = kagglehub.dataset_download("innominate817/pexels-110k-512p-min-jpg")
+
+print("Path to dataset files:", path)
+
+
 
 #Settings
 original_image_directory = "imageGenerationProject/data/moods/all_images"
-metadata_file = "imageGenerationProject/data/attributes_df.json"
+metadata_file = "/Users/hannazelis/.cache/kagglehub/datasets/innominate817/pexels-110k-512p-min-jpg/versions/4/pexels-110k-512p-min-jpg/"
+# under this directory includes: attributes_df.json, images folder, pexels-prompts-pairs.json, and tags.txt; want to move this to data folder under imageGenerationProject
 output_base_directory = "imageGenerationProject/data/sorted"
 resize_to= (128, 128)
 

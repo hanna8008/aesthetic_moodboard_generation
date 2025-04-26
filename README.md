@@ -15,3 +15,4 @@ I plan to implement a Gallery GUI that allows users to control the aesthetic of 
 1. Data Set: https://www.kaggle.com/datasets/innominate817/pexels-110k-512p-min-jpg
 2. CVAE: https://github.com/unnir/cVAE
 3. Dr. D'Arcy's L.03 Autoencoders Presentation
+4. https://www.kaggle.com/code/pinocookie/pytorch-dataset-and-dataloader
