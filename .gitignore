@@ -1,2 +1,8 @@
 #Ignore raw image dataset
 data/pexels-110k-512p-min-jpg/
+outputs/generated
+outputs/checkpoints
+*.pyc
+__pycache__/
+venv/
+.DS_Store
