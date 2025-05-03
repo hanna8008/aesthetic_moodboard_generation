@@ -16,3 +16,5 @@ I plan to implement a Gallery GUI that allows users to control the aesthetic of 
 2. CVAE: https://github.com/unnir/cVAE
 3. Dr. D'Arcy's L.03 Autoencoders Presentation
 4. https://www.kaggle.com/code/pinocookie/pytorch-dataset-and-dataloader
+5. https://medium.com/@sofeikov/implementing-conditional-variational-auto-encoders-cvae-from-scratch-29fcbb8cb08f
+6. https://github.com/unnir/cVAE/blob/master/cvae.py
