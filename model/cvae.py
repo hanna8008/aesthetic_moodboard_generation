@@ -1,19 +1,5 @@
-'''
-Conditional Variational Autoencoder Script
-
-Sources:
-1. https://medium.com/@sofeikov/implementing-conditional-variational-auto-encoders-cvae-from-scratch-29fcbb8cb08f
-2. https://github.com/unnir/cVAE/blob/master/cvae.py
-'''
-
-# --- Imports ---
-import torch
-import torch.utils.data
-from torch import nn
-from torch.nn import functional as F
-
 # -----------------------------------------------------------
-# Conditional Variational Autoencdoer (CVAE)
+# Conditional Variational Autoencdoer (CVAE) - script
 # -----------------------------------------------------------
 # This model learns to generate images based on a condition (like mood or color).
 # It works by encoding both the image and its condition into a shared latent space,
@@ -24,6 +10,12 @@ from torch.nn import functional as F
 # output is to the input) and KL divergence (how close the learned distribution is
 # to a normal distribution). This encourages smooth, structured latent space that
 # supports controlled generation based on input conditions
+
+# --- Imports ---
+import torch
+import torch.utils.data
+from torch import nn
+from torch.nn import functional as F
 
 class CVAE(nn.Module):
     def __init__(self, input_dim, condition_dim, latent_dim):
