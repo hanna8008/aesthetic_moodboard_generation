@@ -1,93 +1,125 @@
 '''
-Conditional Variational Autoencoder
+Conditional Variational Autoencoder Script
 
 Sources:
-1. https://pytorch.org/docs/stable/generated/torch.nn.Linear.html
-2. 
+1. https://medium.com/@sofeikov/implementing-conditional-variational-auto-encoders-cvae-from-scratch-29fcbb8cb08f
+2. https://github.com/unnir/cVAE/blob/master/cvae.py
 '''
 
+# --- Imports ---
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
+import torch.utils.data
+from torch import nn
+from torch.nn import functional as F
+
+# -----------------------------------------------------------
+# Conditional Variational Autoencdoer (CVAE)
+# -----------------------------------------------------------
+# This model learns to generate images based on a condition (like mood or color).
+# It works by encoding both the image and its condition into a shared latent space,
+# sampling a latent vector using reparameterization, and decoding it (with the same condition)
+# to reconstruct the input image.
+#
+# The model is trained using a combination of reconstruction loss (how close the 
+# output is to the input) and KL divergence (how close the learned distribution is
+# to a normal distribution). This encourages smooth, structured latent space that
+# supports controlled generation based on input conditions
+
+class CVAE(nn.Module):
+    def __init__(self, input_dim, condition_dim, latent_dim):
+        super(CVAE, self).__init__()
+
+        # --- Encoder ---
+        #input = image + condition vector
+        #project it down to a smaller hidden representation
+        self.encoder = nn.Sequential(
+            #combine image and condition as input
+            nn.Linear(input_dim + condition_dim, 512),
+            #add non-linearity to capture complex patterns
+            nn.ReLU(),
+            #further compress features
+            nn.Linear(512, 256),
+            #activation again for depth
+            nn.ReLU
+        )
+
+        #latent mean and log-variance: two layers that generate parameters for the latent distribution
+        #predicts the mean of z
+        self.mu = nn.Linear(256, latent_dim)
+        #predicts log(variance) of z (used to get std)
+        self.logvar = nn.Linear(256, latent_dim)
+
+        # --- Decoder ---
+        #takes latent vector z (with condition info) and reconstructs the input image
+        self.decoder = nn.Sequential(
+            #combine z with condition
+            nn.Linear(latent_dim + condition_dim, 256),
+            nn.ReLU(),
+            #expand to match original input size
+            nn.Linear(256, 512),
+            nn.ReLU(),
+            #final output layer
+            nn.Linear(512, input_dim),
+            #scale output to range [0, 1] (image-like)
+            nn.Sigmoid()
+        )
+    
 
 
-# ----------------------------------------------------------------------
-#Encoder Network
-
-#Takes in the image (flattened) and a condition vector (e.g., mood/color),
-#and maps them into a latent distribution (mean and log variance).
-# ----------------------------------------------------------------------
-def build_encoder(input_dim, cond_dim, latent_dim):
-    encoder = nn.Sequential(
-        #input + condition concatenated
-        nn.Linear(in_features=input_dim + cond_dim, out_features=512),
-        nn.ReLU(),
-        nn.Linear(512, 256),
-        nn.ReLU()
-    )
-
-    #output: mu
-    fc_mu = nn.Linear(256, latent_dim)
-    #output: log(var^2)
-    fc_logvar = nn.Linear(2566, latent_dim)
-    return encoder, fc_mu, fc_logvar
+    def encode(self, x, c):
+        '''
+        Combines input image and condition into a single tensor,
+        passes it through the encoder to get latent mean and variance
+        '''
+        #join image and condition into one input
+        x_cond = torch.cat([x, c], dim=1)
+        #pass through encoder to get hidden features
+        h = self.encoder(x_cond)
+        #predict mean of z
+        mu = self.mu(h)
+        #predict log(variance) of z
+        logvar = self.logvar(h)
+        return mu, logvar
+    
 
 
-# ----------------------------------------------------------------------
-# Decoder Network
-# Takes in latent z and condition c, and tries to reconstruct the original image
-# ----------------------------------------------------------------------
-def build_encoder(latent_dim, cond_dim, output_dim):
-    decoder = nn.Sequential(
-        #z + condition
-        nn.Linear(latent_dim + cond_dim, 256),
-        nn.ReLU(),
-        nn.Linear(256, 512),
-        nn.ReLU(),
-        nn.Linear(512, output_dim),
-        #output pixels in range [0, 1]
-        nn.Sigmoid()
-    )
-    return decoder
+    def reparameterize(self, mu, logvar):
+        '''
+        Samples a latent variable z using the reparameterization:
+        z = mu + std * eps, so we can backprop through random sampling
+        '''
+        #convert log-variance to standard deviation
+        std = torch.exp(0.5 * logvar)
+        #random noise with same shape as std
+        eps = torch.rand_like(std)
+        #sample from z using mean and std
+        return mu + eps*std
 
 
 
-# ----------------------------------------------------------------------
-# Reparameterization
-# Used during training to allow gradient backpropogation through random sampling
-# ----------------------------------------------------------------------
-def reparameterize(mu, logvar):
-    #standard deviation
-    std = torch.exp(0.5 * logvar)
-    #random normal noise
-    eps = torch.randn_like(std)
-    #reparameterized sample z
-    z = mu + eps * std
-
-    return z
+    def decode(self, z, c):
+        '''
+        Combines latent vector z and condition, and reconstructs the image
+        '''
+        #join latent vector with condition
+        z_cond = torch.cat([z, c], dim=1)
+        #pass through decoder to get reconstructed image
+        return self.decoder(z_cond)
+        
 
 
-
-# ----------------------------------------------------------------------
-# CVAE Forward Pass
-# 1. Encode x and c: get mu, logvar
-# 2. Sample z from the latent distribution
-# 3. Decode z and c: get reconstructed image
-# ----------------------------------------------------------------------
-def cvae_forward(x, c, encoder, fc_mu, fc_logvar, decoder):
-    # [x | c]: concatenate image and condition
-    x_cond = torch.cat([x, c], dim=1)
-    # Encode to shared hidden space
-    h = encoder(x_cond)
-    # Predict mu
-    mu = fc_mu(h)
-    # Predict log(var^2)
-    logvar = fc_logvar(h)
-    # Sample z using reparameterization
-    z = reparameterize(mu, logvar)
-    # [z | c]: concatenate latent and condition
-    z_cond = torch.cat([z, c], dim=1)
-    # Decode to reconstruct image
-    x_recon = decoder(z_cond)
-
-    return x_recon, mu, logvar
+    def forward(self, x, c):
+        '''
+        Run full CVAE pass:
+        1. encode image + condition to get mu and logvar
+        3. reparameterize to get latent vector z
+        3. decode z + condition to get reconstructed image 
+        '''
+        #step 1: get latent space parameters
+        mu, logvar = self.encode(x, c)
+        #step 2: sample z
+        z = self.reparameterize(mu, logvar)
+        #step 3: reconstruct image
+        x_recon = self.decode(z, c)
+        #return output and latent values (used in loss)
+        return x_recon, mu, logvar
