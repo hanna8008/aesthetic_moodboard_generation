@@ -1,0 +1,22 @@
+Starting .sh file
+/var/spool/slurmd/job1742668/slurm_script: line 20: cd: /home/qlh2987/spring2025/genAI/aesthetic_moodboard_generation: No such file or directory
+Environment activated. Starting training...
+Starting Python training script...
+CVAE training script started.
+Traceback (most recent call last):
+  File "/gpfs/home/qlh2976/spring2025/genAI/aesthetic_moodboard_generation/scripts/train_cvae.py", line 65, in <module>
+    full_dataset = load_dataset(
+  File "/home/qlh2976/spring2025/genAI/aesthetic_moodboard_generation/utils/dataset.py", line 72, in load_dataset
+    df = pd.read_csv(csv_path)
+  File "/home/qlh2976/miniconda/envs/moodgen/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/qlh2976/miniconda/envs/moodgen/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/qlh2976/miniconda/envs/moodgen/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/qlh2976/miniconda/envs/moodgen/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/qlh2976/miniconda/envs/moodgen/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'data/train_mood_filtered.csv'
+Training complete!
