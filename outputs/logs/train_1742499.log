@@ -1,0 +1,7 @@
+Environment activated. Starting training...
+Starting Python training script...
+Traceback (most recent call last):
+  File "/gpfs/home/qlh2976/spring2025/genAI/aesthetic_moodboard_generation/scripts/train_cvae.py", line 43, in <module>
+    from utis.train_utils import cvae_loss_function, save_model, plot_losses
+ModuleNotFoundError: No module named 'utis'
+Training complete!

@@ -40,9 +40,11 @@ from tqdm import tqdm
 from torch.utils.data import DataLoader
 
 from utils.dataset import load_dataset
-from utis.train_utils import cvae_loss_function, save_model, plot_losses
+from utils.train_utils import cvae_loss_function, save_model, plot_losses
 from model.cvae import CVAE 
 
+
+print("CVAE training script started.")
 
 
 # --- Load Config ---
