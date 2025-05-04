@@ -13,6 +13,11 @@ data/pexels-110k-512p-min-jpg/
 # Optional: ignore generated metadata (you can recreate it)
 data/filtered_mood_color_dataset.csv
 
+# Ignore BFG cleanup report
+aesthetic_moodboard_generation.git.bfg-report/
+
+
+
 # Ignore model output files and logs
 outputs/
 checkpoints/
