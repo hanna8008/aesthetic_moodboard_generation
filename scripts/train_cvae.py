@@ -68,14 +68,21 @@ full_dataset = load_dataset(
     condition_type = "mood"
 )
 
+print(f"Loaded dataset length: {len(full_dataset)}")
+df = pd.read_csv(csv_path)
+print("Columns:", df.columns)
+print("First few rows:", df.head())
+
 #split into 70% train, 15% val, 15% tet
 total_size = len(full_dataset)
 train_end = int(0.7 * total_size)
 val_end = train_end + int(0.15 * total_size)
+print(f"Splitting of data complete.")
 
 train_subset = full_dataset[:train_end]
 val_subset = full_dataset[train_end:val_end]
 test_subset = full_dataset[val_end:]
+print(f"Train/Val/Test subsets complete.")
 
 #wrap each subset in a DataLoader
 #shuffling helps the model generalize by prevening it from seing data in the same order every epoch

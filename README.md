@@ -18,3 +18,14 @@ I plan to implement a Gallery GUI that allows users to control the aesthetic of 
 4. https://www.kaggle.com/code/pinocookie/pytorch-dataset-and-dataloader
 5. https://medium.com/@sofeikov/implementing-conditional-variational-auto-encoders-cvae-from-scratch-29fcbb8cb08f
 6. https://github.com/unnir/cVAE/blob/master/cvae.py
+
+
+## Setup Envrionment
+### 1. Clone the repo & move into it
+```bash
+git clone https://github.com/hanna8008/aesthetic_moodboard_generation.git
+cd aesthetic_moodboard_generation
+```
+
+bash setup_env.sh
+source venv/bin/activate
