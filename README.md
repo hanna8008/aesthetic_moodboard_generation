@@ -27,5 +27,9 @@ git clone https://github.com/hanna8008/aesthetic_moodboard_generation.git
 cd aesthetic_moodboard_generation
 ```
 
-bash setup_env.sh
-source venv/bin/activate
+
+## Next Steps
+* Add data to improve generated photo
+* Genereate the gui
+* Update the images for moods and colors for the 8 of each that I chose
+* Update README to inform how to run the envrionment I created for them to run on Quest
