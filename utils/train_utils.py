@@ -30,8 +30,14 @@ def cvae_loss_function(recon_x, x, mu, logvar):
     '''
     #flatten original and reconstructed images to 3D (batch_size, num_features)
     #this isnecessary because the loss function expects flat vectors, not image tensors (C, H, W)
-    x = x.view(x.size(0), -1)
-    recon_x = recon_x.view(recon_x.size(0), -1)
+    x = x.view(x.size(0), -1).contiguous()
+    recon_x = recon_x.view(recon_x.size(0), -1).contiguous()
+
+    """print("x shape:", x.shape)
+    print("recon_x shape:", recon_x.shape)
+    print("x min/max:", x.min().item(), x.max().item())
+    print("recon_x min/max:", recon_x.min().item(), recon_x.max().item())"""
+
 
     #binary cross entropy: compares the original image to the reconstruction
     #measures how well each pizel was predicted -  ideal for normalized outputs in [0, 1]

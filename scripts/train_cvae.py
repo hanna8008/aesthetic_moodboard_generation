@@ -5,31 +5,6 @@
 # Trains a CVAE using mood and/or color-labeled image data. Loads config
 # settings, build the models, runstraining, and saves the model + logs
 # to output folders
-'''
-Script to train the CVAE
-#scripts/train_cvae.py
-
-1. load imports and config
-2. load data (from utils.dataset)
-3. initialize model and optimizer
-4. Training loop:
-    - forward pass
-    - compute loss
-    - backward pass
-    - save model periodically
-    - track losses
-5. save final model
-
-use config in python by:
-
-import yaml
-
-with open("configs/config.yaml", "r") as f:
-    config = yaml.safe_load(f)
-
-batch_size = config['batch_size']
-input_dim = config['input_dim']
-'''
 
 # --- Imports ---
 import os
@@ -38,6 +13,7 @@ import torch
 from torch import optim
 from tqdm import tqdm
 from torch.utils.data import DataLoader
+import pandas as pd
 
 from utils.dataset import load_dataset
 from utils.train_utils import cvae_loss_function, save_model, plot_losses
@@ -68,10 +44,9 @@ full_dataset = load_dataset(
     condition_type = "mood"
 )
 
-print(f"Loaded dataset length: {len(full_dataset)}")
-df = pd.read_csv(csv_path)
-print("Columns:", df.columns)
-print("First few rows:", df.head())
+#print(f"Loaded dataset length: {len(load_dataset)}")
+
+#df = pd.read_csv(config["csv_path"])
 
 #split into 70% train, 15% val, 15% tet
 total_size = len(full_dataset)
@@ -93,6 +68,7 @@ test_loader = DataLoader(test_subset, batch_size=config["batch_size"], shuffle=F
 
 print(f"Dataset split: {len(train_subset)} train | {len(val_subset)} val | {len(test_subset)} test")
 
+print("cond_dim from config:", config.get("cond_dim"))  # Should print 16
 
 
 # --- Initialize Model and Optimizer ---
