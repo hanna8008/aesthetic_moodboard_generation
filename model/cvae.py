@@ -21,18 +21,22 @@ class CVAE(nn.Module):
     def __init__(self, input_dim, condition_dim, latent_dim):
         super(CVAE, self).__init__()
 
+        self.cond_dim = condition_dim
+        self.input_dim =input_dim
+        print(f"CVAE initialized with input_dim={input_dim}, cond_dim={condition_dim}, latent_dim={latent_dim}")
+
         # --- Encoder ---
         #input = image + condition vector
         #project it down to a smaller hidden representation
         self.encoder = nn.Sequential(
             #combine image and condition as input
-            nn.Linear(input_dim + condition_dim, 512),
+            nn.Linear(self.input_dim + self.cond_dim, 512),
             #add non-linearity to capture complex patterns
             nn.ReLU(),
             #further compress features
             nn.Linear(512, 256),
             #activation again for depth
-            nn.ReLU
+            nn.ReLU()
         )
 
         #latent mean and log-variance: two layers that generate parameters for the latent distribution
@@ -45,7 +49,7 @@ class CVAE(nn.Module):
         #takes latent vector z (with condition info) and reconstructs the input image
         self.decoder = nn.Sequential(
             #combine z with condition
-            nn.Linear(latent_dim + condition_dim, 256),
+            nn.Linear(latent_dim + self.cond_dim, 256),
             nn.ReLU(),
             #expand to match original input size
             nn.Linear(256, 512),
@@ -63,6 +67,8 @@ class CVAE(nn.Module):
         Combines input image and condition into a single tensor,
         passes it through the encoder to get latent mean and variance
         '''
+        #flatten size: x to 2D
+        x = x.view(x.size(0), -1)
         #join image and condition into one input
         x_cond = torch.cat([x, c], dim=1)
         #pass through encoder to get hidden features

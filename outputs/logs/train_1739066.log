@@ -1,8 +1,0 @@
-/var/spool/slurmd/job1739066/slurm_script: line 12: /home/qlh2976/miniconda3/etc/profile.d/conda.sh: No such file or directory
-
-CondaError: Run 'conda init' before 'conda activate'
-
-Traceback (most recent call last):
-  File "/gpfs/home/qlh2976/spring2025/genAI/aesthetic_moodboard_generation/scripts/train_cvae.py", line 42, in <module>
-    from utils.dataset import load_dataset
-ModuleNotFoundError: No module named 'utils'

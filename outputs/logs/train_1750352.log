@@ -1,0 +1,111 @@
+Starting .sh file
+Environment activated. Starting training...
+Starting Python training script...
+CVAE training script started.
+Missing images: 0
+Splitting of data complete.
+Train/Val/Test subsets complete.
+Dataset split: 2718 train | 582 val | 583 test
+cond_dim from config: 16
+CVAE initialized with input_dim=12288, cond_dim=16, latent_dim=64
+Starting training...
+Epoch 1/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 1/30:   2%|▏         | 1/43 [00:00<00:16,  2.61it/s]Epoch 1/30:  40%|███▉      | 17/43 [00:00<00:00, 45.06it/s]Epoch 1/30:  81%|████████▏ | 35/43 [00:00<00:00, 82.23it/s]Epoch 1/30: 100%|██████████| 43/43 [00:00<00:00, 65.14it/s]
+Epoch 1: Avg Training Loss = 7917.8791
+Epoch 1: Avg Validation Loss = 7655.0180
+Epoch 2/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 2/30:  12%|█▏        | 5/43 [00:00<00:00, 49.51it/s]Epoch 2/30:  56%|█████▌    | 24/43 [00:00<00:00, 128.40it/s]Epoch 2/30:  98%|█████████▊| 42/43 [00:00<00:00, 149.80it/s]Epoch 2/30: 100%|██████████| 43/43 [00:00<00:00, 124.57it/s]
+Epoch 2: Avg Training Loss = 7418.8996
+Epoch 2: Avg Validation Loss = 7533.0183
+Epoch 3/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 3/30:  16%|█▋        | 7/43 [00:00<00:00, 67.78it/s]Epoch 3/30:  56%|█████▌    | 24/43 [00:00<00:00, 126.36it/s]Epoch 3/30:  95%|█████████▌| 41/43 [00:00<00:00, 142.98it/s]Epoch 3/30: 100%|██████████| 43/43 [00:00<00:00, 122.94it/s]
+Epoch 3: Avg Training Loss = 7248.0765
+Epoch 3: Avg Validation Loss = 7393.5545
+Epoch 4/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 4/30:  16%|█▋        | 7/43 [00:00<00:00, 69.29it/s]Epoch 4/30:  67%|██████▋   | 29/43 [00:00<00:00, 155.78it/s]Epoch 4/30: 100%|██████████| 43/43 [00:00<00:00, 138.93it/s]
+Epoch 4: Avg Training Loss = 7163.7121
+Epoch 4: Avg Validation Loss = 7333.4433
+Epoch 5/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 5/30:   7%|▋         | 3/43 [00:00<00:01, 29.14it/s]Epoch 5/30:  51%|█████     | 22/43 [00:00<00:00, 118.63it/s]Epoch 5/30:  95%|█████████▌| 41/43 [00:00<00:00, 146.94it/s]Epoch 5/30: 100%|██████████| 43/43 [00:00<00:00, 116.37it/s]
+Epoch 5: Avg Training Loss = 7134.3790
+Epoch 5: Avg Validation Loss = 7311.7633
+Model saved to outputs/checkpoints/cvae.pth
+Epoch 6/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 6/30:  12%|█▏        | 5/43 [00:00<00:00, 47.39it/s]Epoch 6/30:  56%|█████▌    | 24/43 [00:00<00:00, 126.53it/s]Epoch 6/30:  98%|█████████▊| 42/43 [00:00<00:00, 149.52it/s]Epoch 6/30: 100%|██████████| 43/43 [00:00<00:00, 124.32it/s]
+Epoch 6: Avg Training Loss = 7084.4271
+Epoch 6: Avg Validation Loss = 7263.6911
+Epoch 7/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 7/30:  16%|█▋        | 7/43 [00:00<00:00, 67.09it/s]Epoch 7/30:  65%|██████▌   | 28/43 [00:00<00:00, 149.11it/s]Epoch 7/30: 100%|██████████| 43/43 [00:00<00:00, 138.31it/s]
+Epoch 7: Avg Training Loss = 7050.6729
+Epoch 7: Avg Validation Loss = 7248.3205
+Epoch 8/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 8/30:  14%|█▍        | 6/43 [00:00<00:00, 57.74it/s]Epoch 8/30:  65%|██████▌   | 28/43 [00:00<00:00, 149.83it/s]Epoch 8/30: 100%|██████████| 43/43 [00:00<00:00, 140.43it/s]
+Epoch 8: Avg Training Loss = 7008.5669
+Epoch 8: Avg Validation Loss = 7222.1781
+Epoch 9/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 9/30:  21%|██        | 9/43 [00:00<00:00, 89.10it/s]Epoch 9/30:  67%|██████▋   | 29/43 [00:00<00:00, 152.59it/s]Epoch 9/30: 100%|██████████| 43/43 [00:00<00:00, 136.88it/s]
+Epoch 9: Avg Training Loss = 6978.0200
+Epoch 9: Avg Validation Loss = 7195.5613
+Epoch 10/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 10/30:  14%|█▍        | 6/43 [00:00<00:00, 58.81it/s]Epoch 10/30:  58%|█████▊    | 25/43 [00:00<00:00, 133.67it/s]Epoch 10/30: 100%|██████████| 43/43 [00:00<00:00, 125.88it/s]
+Epoch 10: Avg Training Loss = 6957.5977
+Epoch 10: Avg Validation Loss = 7166.4040
+Model saved to outputs/checkpoints/cvae.pth
+Epoch 11/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 11/30:  12%|█▏        | 5/43 [00:00<00:00, 48.56it/s]Epoch 11/30:  58%|█████▊    | 25/43 [00:00<00:00, 136.53it/s]Epoch 11/30: 100%|██████████| 43/43 [00:00<00:00, 152.64it/s]Epoch 11/30: 100%|██████████| 43/43 [00:00<00:00, 127.05it/s]
+Epoch 11: Avg Training Loss = 6926.3729
+Epoch 11: Avg Validation Loss = 7150.1760
+Epoch 12/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 12/30:  16%|█▋        | 7/43 [00:00<00:00, 68.11it/s]Epoch 12/30:  67%|██████▋   | 29/43 [00:00<00:00, 152.37it/s]Epoch 12/30: 100%|██████████| 43/43 [00:00<00:00, 142.04it/s]
+Epoch 12: Avg Training Loss = 6914.5290
+Epoch 12: Avg Validation Loss = 7189.4991
+Epoch 13/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 13/30:  14%|█▍        | 6/43 [00:00<00:00, 59.25it/s]Epoch 13/30:  63%|██████▎   | 27/43 [00:00<00:00, 146.70it/s]Epoch 13/30: 100%|██████████| 43/43 [00:00<00:00, 134.51it/s]
+Epoch 13: Avg Training Loss = 6922.2378
+Epoch 13: Avg Validation Loss = 7142.9646
+Epoch 14/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 14/30:  16%|█▋        | 7/43 [00:00<00:00, 68.38it/s]Epoch 14/30:  58%|█████▊    | 25/43 [00:00<00:00, 130.57it/s]Epoch 14/30:  98%|█████████▊| 42/43 [00:00<00:00, 143.79it/s]Epoch 14/30: 100%|██████████| 43/43 [00:00<00:00, 120.28it/s]
+Epoch 14: Avg Training Loss = 6893.4229
+Epoch 14: Avg Validation Loss = 7137.0464
+Epoch 15/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 15/30:   9%|▉         | 4/43 [00:00<00:00, 39.50it/s]Epoch 15/30:  58%|█████▊    | 25/43 [00:00<00:00, 137.00it/s]Epoch 15/30: 100%|██████████| 43/43 [00:00<00:00, 133.82it/s]
+Epoch 15: Avg Training Loss = 6884.7687
+Epoch 15: Avg Validation Loss = 7138.4101
+Model saved to outputs/checkpoints/cvae.pth
+Epoch 16/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 16/30:   7%|▋         | 3/43 [00:00<00:01, 29.89it/s]Epoch 16/30:  58%|█████▊    | 25/43 [00:00<00:00, 137.88it/s]Epoch 16/30: 100%|██████████| 43/43 [00:00<00:00, 131.27it/s]
+Epoch 16: Avg Training Loss = 6870.2700
+Epoch 16: Avg Validation Loss = 7113.0280
+Epoch 17/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 17/30:   9%|▉         | 4/43 [00:00<00:00, 39.25it/s]Epoch 17/30:  49%|████▉     | 21/43 [00:00<00:00, 115.02it/s]Epoch 17/30:  88%|████████▊ | 38/43 [00:00<00:00, 138.03it/s]Epoch 17/30: 100%|██████████| 43/43 [00:00<00:00, 115.09it/s]
+Epoch 17: Avg Training Loss = 6857.1245
+Epoch 17: Avg Validation Loss = 7103.9064
+Epoch 18/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 18/30:  12%|█▏        | 5/43 [00:00<00:00, 49.67it/s]Epoch 18/30:  56%|█████▌    | 24/43 [00:00<00:00, 128.21it/s]Epoch 18/30:  98%|█████████▊| 42/43 [00:00<00:00, 148.46it/s]Epoch 18/30: 100%|██████████| 43/43 [00:00<00:00, 123.24it/s]
+Epoch 18: Avg Training Loss = 6840.7392
+Epoch 18: Avg Validation Loss = 7105.0902
+Epoch 19/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 19/30:  19%|█▊        | 8/43 [00:00<00:00, 78.56it/s]Epoch 19/30:  67%|██████▋   | 29/43 [00:00<00:00, 152.88it/s]Epoch 19/30: 100%|██████████| 43/43 [00:00<00:00, 140.79it/s]
+Epoch 19: Avg Training Loss = 6847.7077
+Epoch 19: Avg Validation Loss = 7114.0402
+Epoch 20/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 20/30:  19%|█▊        | 8/43 [00:00<00:00, 76.21it/s]Epoch 20/30:  60%|██████    | 26/43 [00:00<00:00, 133.62it/s]Epoch 20/30: 100%|██████████| 43/43 [00:00<00:00, 129.23it/s]
+Epoch 20: Avg Training Loss = 6815.8380
+Epoch 20: Avg Validation Loss = 7085.2302
+Model saved to outputs/checkpoints/cvae.pth
+Epoch 21/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 21/30:   9%|▉         | 4/43 [00:00<00:00, 39.06it/s]Epoch 21/30:  58%|█████▊    | 25/43 [00:00<00:00, 136.03it/s]Epoch 21/30: 100%|██████████| 43/43 [00:00<00:00, 135.11it/s]
+Epoch 21: Avg Training Loss = 6801.3351
+Epoch 21: Avg Validation Loss = 7075.3072
+Epoch 22/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 22/30:  14%|█▍        | 6/43 [00:00<00:00, 57.62it/s]Epoch 22/30:  65%|██████▌   | 28/43 [00:00<00:00, 150.73it/s]Epoch 22/30: 100%|██████████| 43/43 [00:00<00:00, 134.33it/s]
+Epoch 22: Avg Training Loss = 6791.3412
+Epoch 22: Avg Validation Loss = 7060.6369
+Epoch 23/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 23/30:  12%|█▏        | 5/43 [00:00<00:00, 49.47it/s]Epoch 23/30:  63%|██████▎   | 27/43 [00:00<00:00, 145.73it/s]Epoch 23/30: 100%|██████████| 43/43 [00:00<00:00, 134.76it/s]
+Epoch 23: Avg Training Loss = 6773.2747
+Epoch 23: Avg Validation Loss = 7043.8102
+Epoch 24/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 24/30:  16%|█▋        | 7/43 [00:00<00:00, 67.72it/s]Epoch 24/30:  67%|██████▋   | 29/43 [00:00<00:00, 151.94it/s]Epoch 24/30: 100%|██████████| 43/43 [00:00<00:00, 141.31it/s]
+Epoch 24: Avg Training Loss = 6762.3558
+Epoch 24: Avg Validation Loss = 7034.2896
+Epoch 25/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 25/30:  16%|█▋        | 7/43 [00:00<00:00, 68.32it/s]Epoch 25/30:  60%|██████    | 26/43 [00:00<00:00, 138.63it/s]Epoch 25/30: 100%|██████████| 43/43 [00:00<00:00, 136.22it/s]
+Epoch 25: Avg Training Loss = 6750.9419
+Epoch 25: Avg Validation Loss = 7044.1264
+Model saved to outputs/checkpoints/cvae.pth
+Epoch 26/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 26/30:  12%|█▏        | 5/43 [00:00<00:00, 48.77it/s]Epoch 26/30:  56%|█████▌    | 24/43 [00:00<00:00, 126.82it/s]Epoch 26/30:  95%|█████████▌| 41/43 [00:00<00:00, 145.44it/s]Epoch 26/30: 100%|██████████| 43/43 [00:00<00:00, 122.44it/s]
+Epoch 26: Avg Training Loss = 6742.3899
+Epoch 26: Avg Validation Loss = 7025.1333
+Epoch 27/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 27/30:  21%|██        | 9/43 [00:00<00:00, 88.55it/s]Epoch 27/30:  70%|██████▉   | 30/43 [00:00<00:00, 156.40it/s]Epoch 27/30: 100%|██████████| 43/43 [00:00<00:00, 145.13it/s]
+Epoch 27: Avg Training Loss = 6727.0267
+Epoch 27: Avg Validation Loss = 7026.4495
+Epoch 28/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 28/30:  14%|█▍        | 6/43 [00:00<00:00, 57.61it/s]Epoch 28/30:  67%|██████▋   | 29/43 [00:00<00:00, 153.01it/s]Epoch 28/30: 100%|██████████| 43/43 [00:00<00:00, 142.04it/s]
+Epoch 28: Avg Training Loss = 6721.3798
+Epoch 28: Avg Validation Loss = 7028.0736
+Epoch 29/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 29/30:  16%|█▋        | 7/43 [00:00<00:00, 67.11it/s]Epoch 29/30:  60%|██████    | 26/43 [00:00<00:00, 134.48it/s]Epoch 29/30: 100%|██████████| 43/43 [00:00<00:00, 132.13it/s]
+Epoch 29: Avg Training Loss = 6705.7428
+Epoch 29: Avg Validation Loss = 7009.0425
+Epoch 30/30:   0%|          | 0/43 [00:00<?, ?it/s]Epoch 30/30:  16%|█▋        | 7/43 [00:00<00:00, 68.59it/s]Epoch 30/30:  63%|██████▎   | 27/43 [00:00<00:00, 144.36it/s]Epoch 30/30: 100%|██████████| 43/43 [00:00<00:00, 133.34it/s]
+Epoch 30: Avg Training Loss = 6693.5819
+Epoch 30: Avg Validation Loss = 7015.9617
+Model saved to outputs/checkpoints/cvae.pth
+Model saved to outputs/checkpoints/cvae.pth
+Evaluating on test set...
+Final Test Loss = 7139.2496
+Training complete!

@@ -31,7 +31,7 @@ transform = transforms.Compose([
     #convert image to PyTorch format (C, H, W)
     transforms.ToTensor(),
     #scale pixel values from [0, 1] to [-1, 1]
-    transforms.Normalize([0.5], [0.5])
+    #transforms.Normalize([0.5], [0.5])
 ])
 
 
@@ -53,7 +53,7 @@ def one_hot_encode(label, all_labels):
     #find the position of this label in the list of all labels
     idx = all_labels.index(label)
     #create a vector with a 1 at the label's index and 0s elsewhere
-    return F.one_hot(torch.tensor(idx), num_classes=len(all_labels)).float()
+    return F.one_hot(torch.tensor(idx), num_classes=16).float()
 
 
 def load_dataset(csv_path, image_root, condition_type):
@@ -70,11 +70,20 @@ def load_dataset(csv_path, image_root, condition_type):
     """
     #read the CSV file into the DataFrame
     df = pd.read_csv(csv_path)
+
+    #filter out rows with missing images
+    df["filepath"] = df["image_id"].apply(lambda x: os.path.join(image_root, f"{x}.jpg"))
+    #keep only rows with actual images
+    df = df[df["filepath"].apply(os.path.exists)]
+
     #get a list of all unique mood or color labels (whichever is being conditionined on)
     all_conditions = sorted(df[condition_type].unique())
 
     #list to be filled with image + label pairs
     dataset = []
+
+    #keep track of how many images are missing
+    missing_count = 0
 
     #go through every row in the CSV
     for _,row in df.iterrows():
@@ -91,7 +100,7 @@ def load_dataset(csv_path, image_root, condition_type):
         img_path = os.path.join(image_root, f"{image_id}.jpg")
         #skip it if the file does not exist
         if not os.path.exists(img_path):
-            print(f"Missing: {img_path}")
+            missing_count += 1
             continue
 
         #load and transform the image into a tensor
@@ -101,6 +110,8 @@ def load_dataset(csv_path, image_root, condition_type):
 
         #add the image and its label to the dataset
         dataset.append((img_tensor, condition_tensor))
+
+    print(f"Missing images: {missing_count}")
 
     #return the complete dataset
     return dataset
