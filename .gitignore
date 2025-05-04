@@ -10,8 +10,11 @@ data/filtered_images/
 data/pexels-110k-512p-min-jpg/
 *.zip
 
-# Optional: ignore generated metadata (you can recreate it)
+# Ignore big generated files
 data/filtered_mood_color_dataset.csv
+
+# Ignore BFG leftovers
+*.bfg-report
 
 # Ignore temp Git metadata and cleanup reports
 aesthetic_moodboard_generation.git/
@@ -36,3 +39,4 @@ __pycache__/
 
 # Jupyter temp
 .ipynb_checkpoints/
+data/filtered_mood_color_dataset.csv
