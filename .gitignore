@@ -5,4 +5,38 @@ outputs/checkpoints
 *.pyc
 __pycache__/
 venv/
+# Ignore massive image/data folders
+data/filtered_images/
+data/pexels-110k-512p-min-jpg/
+*.zip
+
+# Ignore big generated files
+data/filtered_mood_color_dataset.csv
+
+# Ignore BFG leftovers
+*.bfg-report
+
+# Ignore temp Git metadata and cleanup reports
+aesthetic_moodboard_generation.git/
+aesthetic_moodboard_generation.git.bfg-report/
+
+
+# Ignore model output files and logs
+outputs/
+checkpoints/
+*.pth
+
+# Python junk
+__pycache__/
+*.pyc
+*.pyo
 .DS_Store
+
+# Conda/venv environment files
+.env/
+.venv/
+.envrc
+
+# Jupyter temp
+.ipynb_checkpoints/
+data/filtered_mood_color_dataset.csv
