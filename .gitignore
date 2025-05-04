@@ -5,4 +5,29 @@ outputs/checkpoints
 *.pyc
 __pycache__/
 venv/
+# Ignore massive image/data folders
+data/filtered_images/
+data/pexels-110k-512p-min-jpg/
+*.zip
+
+# Optional: ignore generated metadata (you can recreate it)
+data/filtered_mood_color_dataset.csv
+
+# Ignore model output files and logs
+outputs/
+checkpoints/
+*.pth
+
+# Python junk
+__pycache__/
+*.pyc
+*.pyo
 .DS_Store
+
+# Conda/venv environment files
+.env/
+.venv/
+.envrc
+
+# Jupyter temp
+.ipynb_checkpoints/
