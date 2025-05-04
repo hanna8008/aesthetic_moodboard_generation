@@ -38,7 +38,7 @@ num_workers: 4
 #flattened image size (3 color channels x 64 height x 64 width)
 input_dim: 12288
 #size of the condition vector (e.g. 8 mood + 8 color, one-hot encoded: mood_dim + color_dim)
-cond_dim: 16 
+cond_dim: 16
 
 mood_labels:
   - cozy
@@ -49,7 +49,6 @@ mood_labels:
   - vintage
   - natural
   - adventurous
-  - mystical
 
 color_labels:
   - pink
@@ -59,14 +58,8 @@ color_labels:
   - green
   - blue
   - purple
-  - brown
-  - gray
-  - black
   - white
-  - beige
-  - gold
-  - silver
-  - multicolor
+
 
 
 #size of the latent space (controls how compressed the representation is)
