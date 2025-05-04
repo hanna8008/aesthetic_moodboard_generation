@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Activate envrionment
-source venv/bin/activate
+source conda activate moodgen
 
 #Run the GUI
-python GUI/gui.py
+python gui.py
