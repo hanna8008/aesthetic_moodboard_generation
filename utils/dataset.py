@@ -115,3 +115,27 @@ def load_dataset(csv_path, image_root, condition_type):
 
     #return the complete dataset
     return dataset
+
+
+def get_condition_vector_dual(mood, color, config):
+    """
+    Convert mood and color strings into a combined one-hot vector.
+    Assumes mood_dim and color_dim are provided in config.
+    """
+    mood_labels = config["mood_labels"]  # e.g., ["dreamy", "moody", ...]
+    color_labels = config["color_labels"]  # e.g., ["pastel", "vibrant", ...]
+
+    mood_vec = torch.zeros(len(mood_labels))
+    color_vec = torch.zeros(len(color_labels))
+
+    if mood in mood_labels:
+        mood_vec[mood_labels.index(mood)] = 1.0
+    else:
+        raise ValueError(f"Invalid mood: {mood}")
+
+    if color in color_labels:
+        color_vec[color_labels.index(color)] = 1.0
+    else:
+        raise ValueError(f"Invalid color: {color}")
+
+    return torch.cat([mood_vec, color_vec]).unsqueeze(0)  # shape (1, cond_dim)
