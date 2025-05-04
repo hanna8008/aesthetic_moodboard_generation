@@ -23,7 +23,7 @@ device: cuda
 
 # --- Data Settings ---
 #path to the CSV containing image IDs and labels (mood, color, etc.)
-csv_path: data/train_mood_filtered.csv
+csv_path: data/filtered_images/filtered_mood_color_dataset.csv
 #root directory where the filtered image folders are stored
 image_root: data/filtered_images
 

@@ -88,7 +88,7 @@ def load_dataset(csv_path, image_root, condition_type):
         condition_value = row[condition_type]
 
         #build the full file path to the image (folder structure is: mood/color/image.jpg)
-        img_path = os.path.join(image_root, mood, color, f"{image_id}.jpg")
+        img_path = os.path.join(image_root, f"{image_id}.jpg")
         #skip it if the file does not exist
         if not os.path.exists(img_path):
             print(f"Missing: {img_path}")

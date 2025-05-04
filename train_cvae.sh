@@ -17,7 +17,7 @@ module purge
 eval "$(/home/qlh2976/miniconda/bin/conda shell.bash hook)"
 conda activate /home/qlh2976/miniconda/envs/moodgen
 
-cd /home/qlh2987/spring2025/genAI/aesthetic_moodboard_generation
+cd /home/qlh2976/spring2025/genAI/aesthetic_moodboard_generation
 
 echo "Environment activated. Starting training..."
 
