@@ -35,6 +35,11 @@
 ## Acessing and Running on Quest
 * Users will not need to retrain the model. All evaluation will be done using the pre-trained model checkpoint and GUI.
 
+### ??? 1. Clone the repo & move into it ???
+```bash
+git clone https://github.com/hanna8008/aesthetic_moodboard_generation.git
+cd aesthetic_moodboard_generation
+
 ### 1. Log into Quest
 ```bash
 ssh -X your_netid@login.quest.northwetsern.edu
@@ -94,18 +99,3 @@ I plan to implement a Gallery GUI that allows users to control the aesthetic of 
 4. https://www.kaggle.com/code/pinocookie/pytorch-dataset-and-dataloader
 5. https://medium.com/@sofeikov/implementing-conditional-variational-auto-encoders-cvae-from-scratch-29fcbb8cb08f
 6. https://github.com/unnir/cVAE/blob/master/cvae.py
-
-
-## Setup Envrionment
-### 1. Clone the repo & move into it
-```bash
-git clone https://github.com/hanna8008/aesthetic_moodboard_generation.git
-cd aesthetic_moodboard_generation
-```
-
-
-## Next Steps
-* Add data to improve generated photo
-* Genereate the gui
-* Update the images for moods and colors for the 8 of each that I chose
-* Update README to inform how to run the envrionment I created for them to run on Quest
