@@ -50,8 +50,8 @@ def load_dataset(csv_path, image_root, condition_type):
             condition_value = row[self.condition_type]
             img_path = os.path.join(self.image_root, f"{image_id}.jpg")
             img_tensor = load_image(img_path)
-            print(f"[DEBUG] Image shape: {img_tensor.shape}")  # Should be [3, 64, 64]
-            print(f"[DEBUG] Flattened shape: {img_tensor.view(-1).shape[0]}")  # Should be 12288
+            #print(f"[DEBUG] Image shape: {img_tensor.shape}")  # Should be [3, 64, 64]
+            #print(f"[DEBUG] Flattened shape: {img_tensor.view(-1).shape[0]}")  # Should be 12288
             condition_tensor = one_hot_encode(condition_value, self.all_conditions)
             return img_tensor, condition_tensor
 
