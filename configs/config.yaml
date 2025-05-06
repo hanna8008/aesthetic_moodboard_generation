@@ -38,9 +38,9 @@ condition_type: mood
 
 # --- Model Settings ---
 #flattened image size (3 color channels x 64 height x 64 width)
-input_dim: 12296
+input_dim: 12288
 #size of the condition vector (e.g. 8 mood + 8 color, one-hot encoded: mood_dim + color_dim)
-cond_dim: 9
+cond_dim: 8
 
 mood_labels:
   - cozy

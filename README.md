@@ -2,15 +2,77 @@
 
 ## Project Features
 * Conditional Variational Autoencoder (CVAE) trained on filtered aesthetic image dataset
+* One-hot encoding of 8 aesthetic mood classes (cozy, dreamy, romantic, minimlaist, vibrant, )
 * TBD TO BE INSERTED: dual conditioning on mood and color via one-hot encoding
 *  Real-time image generation using a Graphical User INterface (GUI)
 * Modularized code with support for future retraiing or dataset expansion
 
 ## Folder Structure
+```
+├── configs/
+│   └── config.yaml                     # Model and training configuration
+├── data/
+│   ├── filtered_images/               # Preprocessed image patches
+│   ├── filtered_mood_color_dataset.csv # Image labels (mood + color)
+├── model/
+│   └── cvae.py                         # CVAE architecture
+├── outputs/
+│   ├── checkpoints/                    # Saved trained models (.pth)
+│   └── generated/                      # Generated image outputs
+├── scripts/
+│   ├── train_cvae.py                   # CVAE training script
+│   └── generate.py                     # Image generation script (from terminal)
+├── utils/
+│   ├── dataset.py                      # Custom dataset class
+│   └── train_utils.py                  # Losses, plots, and saving
+├── gui.py                              # GUI definition
+├── run_gui.sh                          # Launch script for GUI
+├── setup_env.sh                        # Conda environment setup
+├── train_cvae.sh                       # SLURM script to train (optional)
+├── requirements.txt                    # All required Python packages
+```
 
 ## Acessing and Running on Quest
-* Users will not need to retrain the model. All evaluation will be done using hte pre-trained model checkpoint and GUI .
+* Users will not need to retrain the model. All evaluation will be done using the pre-trained model checkpoint and GUI.
 
+### 1. Log into Quest
+```bash
+ssh -X your_netid@login.quest.northwetsern.edu
+```
+
+>'-X' is required to forward the GUI (X11).
+
+### 2. Setup the Conda Envrionment (First Time Only)
+```bash
+bash setup_env.sh
+```
+
+This will:
+* Create a Conda envrionment called 'moodgen'
+* Install all required packages from 'requirements.txt'
+
+To activate manually later:
+```bash
+conda activate moodgen
+```
+
+### 3. Run the GUI
+```bash
+bash run_gui.sh
+```
+
+This will:
+* Activate the 'moodgen' envrionment
+* Launch 'gui.py' with dropdown menus for moood and color
+* Display the genereated image in a pop-up window
+
+> Make sure you're on a login node with GUI support and have used 'ssh -X'
+
+
+## Notes
+* Trained model is saved in 'outputs/checkpoints/cvae.pth'
+* GUI output images are saved in 'outputs/generated/'
+* If display issues arise, ensure your terminal supports X11
 
 
 
