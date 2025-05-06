@@ -1,4 +1,18 @@
-# aesthetic_moodboard_generation
+# CVAE Aesthetic Image Generator
+
+## Project Features
+* Conditional Variational Autoencoder (CVAE) trained on filtered aesthetic image dataset
+* TBD TO BE INSERTED: dual conditioning on mood and color via one-hot encoding
+*  Real-time image generation using a Graphical User INterface (GUI)
+* Modularized code with support for future retraiing or dataset expansion
+
+## Folder Structure
+
+## Acessing and Running on Quest
+* Users will not need to retrain the model. All evaluation will be done using hte pre-trained model checkpoint and GUI .
+
+
+
 
 ## Image Source: ##
 ### Title: Pexels 110k 512p JPEG ###
