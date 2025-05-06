@@ -39,6 +39,7 @@
 ```bash
 git clone https://github.com/hanna8008/aesthetic_moodboard_generation.git
 cd aesthetic_moodboard_generation
+```
 
 ### 1. Log into Quest
 ```bash
