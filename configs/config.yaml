@@ -23,7 +23,7 @@ device: cuda
 
 # --- Data Settings ---
 #path to the CSV containing image IDs and labels (mood, color, etc.)
-csv_path: data/filtered_images/filtered_mood_color_dataset.csv
+csv_path: data/filtered_mood_color_dataset.csv
 #root directory where the filtered image folders are stored
 image_root: data/filtered_images
 
@@ -34,11 +34,13 @@ batch_size: 64
 #number of CPU workers to use for loading data in parallel
 num_workers: 4
 
+condition_type: mood
+
 # --- Model Settings ---
 #flattened image size (3 color channels x 64 height x 64 width)
-input_dim: 12288
+input_dim: 12296
 #size of the condition vector (e.g. 8 mood + 8 color, one-hot encoded: mood_dim + color_dim)
-cond_dim: 16
+cond_dim: 9
 
 mood_labels:
   - cozy
@@ -67,11 +69,11 @@ latent_dim: 64
 
 # --- Training Settings ---
 #how many full passes over the training dataset
-num_epochs: 75
+num_epochs: 10
 #step size used by the optimizer (too high = unstable, too low = slow)
 learning_rate: 0.001
 #save a checkpoint model every N epochs (useful for backup + resuming)
-save_every: 5
+save_every: 2
 
 # --- Output Paths ---
 #root folder where all outputs (checkpoints, logs, generations) go

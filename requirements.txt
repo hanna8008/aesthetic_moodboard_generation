@@ -1,9 +1,9 @@
 torch
-torchvision>=0.15
+torchvision
 matplotlib
 pandas
 numpy
 Pillow
 pyyaml
 tqdm
-gradio>=4.0
+gradio

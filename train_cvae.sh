@@ -2,13 +2,16 @@
 #SBATCH --account=e32706
 #SBATCH --job-name=train_cvae
 #SBATCH --output=outputs/logs/train_%j.log
-#SBATCH --time=1:00:00
+#SBATCH --time=48:00:00
 #SBATCH --partition=gengpu
 #SBATCH --gres=gpu:a100:1
-#SBATCH --mem=16G
-#SBATCH --cpus-per-task=4
+#SBATCH --mem=40G
+#SBATCH --cpus-per-task=2
 
 echo "Starting .sh file"
+
+echo "SLURM Job ID: $SLURM_JOB_ID"
+echo "Log file: outputs/logs/train_${SLURM_JOB_ID}.log"
 
 #Activate conda or virtualenv here
 module purge
