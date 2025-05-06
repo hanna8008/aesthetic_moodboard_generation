@@ -69,7 +69,7 @@ latent_dim: 64
 
 # --- Training Settings ---
 #how many full passes over the training dataset
-num_epochs: 30
+num_epochs: 50
 #step size used by the optimizer (too high = unstable, too low = slow)
 learning_rate: 0.001
 #save a checkpoint model every N epochs (useful for backup + resuming)

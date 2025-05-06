@@ -11,12 +11,12 @@ project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(project_root)
 
 from model.cvae import CVAE
-from utils.dataset import get_condition_vector_dual
+from utils.dataset import one_hot_encode
 
 # --- Parse Arguments ---
 parser = argparse.ArgumentParser(description="Generate image from mood and color conditions using trained CVAE.")
 parser.add_argument("--mood", type=str, required=True, help="Mood label (e.g. 'dreamy')")
-parser.add_argument("--color", type=str, required=True, help="Color label (e.g. 'pastel')")
+parser.add_argument("--color", type=str, required=False, help="Color label (e.g. 'pastel')")
 parser.add_argument("--save_dir", type=str, default="outputs/generated/", help="Directory to save generated image")
 args = parser.parse_args()
 
@@ -25,6 +25,8 @@ with open("configs/config.yaml", "r") as f:
     config = yaml.safe_load(f)
 
 device = torch.device(config["device"] if torch.cuda.is_available() else "cpu")
+
+mood_classes = config["mood_labels"]
 
 # --- Load Model ---
 model = CVAE(
@@ -37,7 +39,7 @@ model.load_state_dict(torch.load(config["checkpoint_path"], map_location=device)
 model.eval()
 
 # --- Get Conditioning Vector ---
-condition = get_condition_vector_dual(args.mood, args.color, config).to(device)
+condition = one_hot_encode(args.mood, mood_classes).unsqueeze(0).to(device)
 
 # --- Sample Random Latent Vector z ~ N(0, I) ---
 z = torch.randn(1, config["latent_dim"]).to(device)
@@ -53,7 +55,8 @@ generated_image = np.transpose(generated_image, (1, 2, 0))
 
 # --- Save Image ---
 os.makedirs(args.save_dir, exist_ok=True)
-filename = f"{args.mood}_{args.color}.png"
+#filename = f"{args.mood}_{args.color}.png"
+filename = f"{args.mood}.png"
 save_path = os.path.join(args.save_dir, filename)
 
 plt.imsave(save_path, generated_image)
