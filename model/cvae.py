@@ -71,6 +71,7 @@ class CVAE(nn.Module):
         x = x.view(x.size(0), -1)
         #join image and condition into one input
         x_cond = torch.cat([x, c], dim=1)
+        #print("x_flat:", x.shape, "c:", c.shape, "→ x_cond:", x_cond.shape)
         #pass through encoder to get hidden features
         h = self.encoder(x_cond)
         #predict mean of z

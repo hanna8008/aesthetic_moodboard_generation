@@ -16,7 +16,7 @@ from utils.dataset import one_hot_encode
 # --- Parse Arguments ---
 parser = argparse.ArgumentParser(description="Generate image from mood and color conditions using trained CVAE.")
 parser.add_argument("--mood", type=str, required=True, help="Mood label (e.g. 'dreamy')")
-parser.add_argument("--color", type=str, required=False, help="Color label (e.g. 'pastel')")
+parser.add_argument("--color", type=str, required=True, help="Color label (e.g. 'pastel')")
 parser.add_argument("--save_dir", type=str, default="outputs/generated/", help="Directory to save generated image")
 args = parser.parse_args()
 
@@ -39,7 +39,15 @@ model.load_state_dict(torch.load(config["checkpoint_path"], map_location=device)
 model.eval()
 
 # --- Get Conditioning Vector ---
-condition = one_hot_encode(args.mood, mood_classes).unsqueeze(0).to(device)
+#condition = one_hot_encode(args.mood, mood_classes).unsqueeze(0).to(device)
+if config["condition_type"] == "dual":
+    from utils.dataset import get_condition_vector_dual
+    condition = get_condition_vector_dual(args.mood, args.color, config).unsqueeze(0).to(device)
+else:
+    from utils.dataset import one_hot_encode
+    mood_classes = config["mood_labels"]
+    condition = one_hot_encode(args.mood, mood_classes).unsqueeze(0).to(device)
+
 
 # --- Sample Random Latent Vector z ~ N(0, I) ---
 z = torch.randn(1, config["latent_dim"]).to(device)

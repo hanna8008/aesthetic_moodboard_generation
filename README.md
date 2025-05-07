@@ -1,11 +1,48 @@
-# CVAE Aesthetic Image Generator
+# Visualizing Vibes: Abstract Aesthetic Image Generation from Mood and Color Using a Conditional VAE
 
-## Project Features
-* Conditional Variational Autoencoder (CVAE) trained on filtered aesthetic image dataset
-* One-hot encoding of 8 aesthetic mood classes (cozy, dreamy, romantic, minimlaist, vibrant, )
-* TBD TO BE INSERTED: dual conditioning on mood and color via one-hot encoding
-*  Real-time image generation using a Graphical User INterface (GUI)
-* Modularized code with support for future retraiing or dataset expansion
+---
+
+## Overview
+
+**MoodBoard Generator** is an AI-powered image generation tool that creates **abstract aesthetic visuals** based on two simple inputs: a **mood** (e.g., "dreamy", "romantic") and a **color theme** (e.g., "blue", "earthy"). Instead of producing photorealistic scenes, it generates **blurred, emotional color textures** — like visual vibes — that reflect how a specific mood-color pairing might *feel*.
+
+This project was designed for creators, designers, and moodboard lovers who want to **visually represent an emotional tone** or build aesthetic content foundations.
+
+---
+
+## What This Project Actually Does
+
+This project trains a Conditional Variational Autoencoder (CVAE) to generate **blurred, abstract aesthetic images** from combinations of mood and color labels. It does not aim to generate realistic scenes or objects. Instead, each image represents an emotional impression — a visual "vibe" — derived from ~12,000 aesthetic photographs from Pexels.
+
+
+### What you get:
+- 64x64 RGB image "moodscapes"
+- Soft gradients and abstract color compositions
+- Unique results for each mood-color combination
+
+---
+
+## What You Can Use This For
+* Moodboard builders for designers and creatives
+* Branding explorations
+* Generative design palette development
+* AI x emotion visualizations
+* Lightweight aesthetic AI tools
+
+---
+
+## Model Architecture
+
+- **Model Type**: Conditional Variational Autoencoder (CVAE)
+- **Conditioning**: Dual (one-hot encoded mood + color)
+- **Latent Dimension**: 64
+- **Image Size**: 64 x 64 x 3 (RGB)
+- **Input Vector**: Concatenation of flattened image and condition vector (12288 + 16)
+- **Loss Function**: CVAE loss (reconstruction + KL divergence)
+- **Training Epochs**: Up to 200
+- **Progress Images**: Generated every 25 epochs during training to show evolution
+
+---
 
 ## Folder Structure
 ```
@@ -32,23 +69,25 @@
 ├── requirements.txt                    # All required Python packages
 ```
 
-## Acessing and Running on Quest
+---
+
+## Accessing and Running on Quest
 * Users will not need to retrain the model. All evaluation will be done using the pre-trained model checkpoint and GUI.
 
-### ??? 1. Clone the repo & move into it ???
+### 1. Clone the Repo into Quest
 ```bash
 git clone https://github.com/hanna8008/aesthetic_moodboard_generation.git
 cd aesthetic_moodboard_generation
 ```
 
-### 1. Log into Quest
+### 2. Log into Quest
 ```bash
-ssh -X your_netid@login.quest.northwetsern.edu
+ssh -X your_netid@login.quest.northwestern.edu
 ```
 
->'-X' is required to forward the GUI (X11).
+>'-X' enables GUI support 
 
-### 2. Setup the Conda Envrionment (First Time Only)
+### 3. Setup the Conda Envrionment (First Time Only)
 ```bash
 bash setup_env.sh
 ```
@@ -62,41 +101,62 @@ To activate manually later:
 conda activate moodgen
 ```
 
-### 3. Run the GUI
+### 4. Run the GUI
 ```bash
 bash run_gui.sh
 ```
 
 This will:
 * Activate the 'moodgen' envrionment
-* Launch 'gui.py' with dropdown menus for moood and color
-* Display the genereated image in a pop-up window
+* Launch 'gui.py' with dropdown menus for mood and color
+* Display the generated image in a pop-up window
 
 > Make sure you're on a login node with GUI support and have used 'ssh -X'
 
+---
 
-## Notes
+## Extra Criteria - GUI Overview
+
+The GUI is built using [Gradio](https://www.gradio.app/) and allows users to interactively generate aesthetic images based on mood and color labels.
+
+### Features:
+- **Dropdown Menus**: Select one of eight moods and eight color themes
+- **Generate Button**: Calls the backend script (`scripts/generate.py`) with the selected mood and color
+- **Output Preview**: Displays the generated image in real-time
+- **Gradio UI**: Lightweight, web-based interface with soft, aesthetic styling
+
+### How It Works:
+1. User selects a mood (e.g., `dreamy`) and a color (e.g., `blue`)
+2. Gradio calls the function `generate_and_return_image()`, which runs:
+   ```bash
+   python scripts/generate.py --mood dreamy --color blue
+   ```
+
+---
+
+## Future Improvements
+* Support for caption-based conditioning (e.g., "lavender sunset")
+* Higher resolution outputs (128x128 or 256x256)
+* Diffusion model variant
+
+---
+
+## Additional Notes:
 * Trained model is saved in 'outputs/checkpoints/cvae.pth'
 * GUI output images are saved in 'outputs/generated/'
 * If display issues arise, ensure your terminal supports X11
 
-
+---
 
 ## Image Source: ##
 ### Title: Pexels 110k 512p JPEG ###
 https://www.kaggle.com/datasets/innominate817/pexels-110k-512p-min-jpg
 
-## Model architecture(s): ##
-For this project, I will create a Conditional Variational Autoencoder (CVAE) and train it from scratch. Compared to a basic VAE, the CVAE will allow me to generate new images based on a provided label or condition (i.e. mood category ).
+---
 
-## Extra Criteria: ##  
-I plan to implement a Gallery GUI that allows users to control the aesthetic of the generated image by giving both a list of mood categories to select from and filtering visual attributes (e.g., warmth, saturation, brightness) with a sliding adjustment feature. The GUI will display a grid of AI-generated images matching the mood and visual attributes, helping users to explore and compare results for creative inspiration or design use.
-
-
-## Sources I used to Help Me:
-1. Data Set: https://www.kaggle.com/datasets/innominate817/pexels-110k-512p-min-jpg
-2. CVAE: https://github.com/unnir/cVAE
-3. Dr. D'Arcy's L.03 Autoencoders Presentation
-4. https://www.kaggle.com/code/pinocookie/pytorch-dataset-and-dataloader
-5. https://medium.com/@sofeikov/implementing-conditional-variational-auto-encoders-cvae-from-scratch-29fcbb8cb08f
-6. https://github.com/unnir/cVAE/blob/master/cvae.py
+## References and Tools Used:
+1. [Pexels 110k Dataset (Kaggle)](https://www.kaggle.com/datasets/innominate817/pexels-110k-512p-min-jpg)
+2. [CVAE baseline structure](https://github.com/unnir/cVAE)
+3. Northwestern’s EECS Autoencoders Lecture by Dr. D'Arcy
+4. [PyTorch Dataset Dataloader Guide (Kaggle)](https://www.kaggle.com/code/pinocookie/pytorch-dataset-and-dataloader)
+5. [Conditional VAE From Scratch - Medium](https://medium.com/@sofeikov/implementing-conditional-variational-auto-encoders-cvae-from-scratch-29fcbb8cb08f)

@@ -8,6 +8,7 @@
 
 # --- Imports ---
 import os
+import sys
 import yaml
 import torch
 from torch import optim
@@ -15,9 +16,15 @@ from tqdm import tqdm
 from torch.utils.data import DataLoader
 import pandas as pd
 
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(project_root)
+
 from utils.dataset import load_dataset
 from utils.train_utils import cvae_loss_function, save_model, plot_losses
 from model.cvae import CVAE 
+import matplotlib.pyplot as plt
+import numpy as np
+from utils.dataset import get_condition_vector_dual
 
 print("CVAE training script started.")
 
@@ -113,6 +120,29 @@ for epoch in range(config["num_epochs"]):
     if (epoch + 1) % config["save_every"] == 0:
         os.makedirs(os.path.dirname(config["checkpoint_path"]), exist_ok=True)
         save_model(model, config["checkpoint_path"])
+
+    # --- Save Progress Image ---
+    if (epoch + 1) % 25 == 0:
+        model.eval()
+        z = torch.randn(1, config["latent_dim"]).to(device)
+
+        test_mood = "dreamy"
+        test_color = "blue"
+        test_condition = get_condition_vector_dual(test_mood, test_color, config).unsqueeze(0).to(device)
+
+        with torch.no_grad():
+            gen = model.decode(z, test_condition)
+            gen = torch.sigmoid(gen).view(3, 64, 64).cpu().numpy()
+
+        # Construct unique filename using project name, epoch, mood, and color
+        job_name = config.get("project_name", "unnamed")
+        filename = f"progress_{job_name}_e{epoch+1}_{test_mood}_{test_color}.png"
+        save_path = os.path.join(config["generated_dir"], filename)
+        os.makedirs(config["generated_dir"], exist_ok=True)
+
+        plt.imsave(save_path, np.transpose(gen, (1, 2, 0)))
+        print(f"Progress image saved to {save_path}")
+
 
 
 # --- Save the Final Trained Model ---

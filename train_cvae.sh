@@ -17,10 +17,14 @@ echo "Log file: outputs/logs/train_${SLURM_JOB_ID}.log"
 module purge
 
 #Use hook + absolute path
-eval "$(/home/qlh2976/miniconda/bin/conda shell.bash hook)"
-conda activate /home/qlh2976/miniconda/envs/moodgen
+#eval "$(/home/qlh2976/miniconda/bin/conda shell.bash hook)"
+#conda activate /home/qlh2976/miniconda/envs/moodgen"""
+source $(conda info --base)/etc/profile.d/conda.sh
+conda activate moodgen
 
-cd /home/qlh2976/spring2025/genAI/aesthetic_moodboard_generation
+
+#cd /home/qlh2976/spring2025/genAI/aesthetic_moodboard_generation
+cd $SLURM_SUBMIT_DIR
 
 echo "Environment activated. Starting training..."
 
