@@ -22,6 +22,7 @@ import torch
 import matplotlib.pyplot as plt
 import numpy as np
 import yaml
+from PIL import Image
 
 # --- Setup: add the project root directory to sys.path (import path) ---
 #this ensures I can import from other folders like 'model/' and 'utils/'
@@ -31,8 +32,8 @@ sys.path.append(project_root)
 # --- Model and Utility Imports ---
 #import the trained CVAE model class and import helper functions to create condition vectors
 from model.cvae import CVAE
-from utils.dataset import one_hot_encode
-from utils.dataset import get_condition_vector_dual
+from utils.data_utils import one_hot_encode
+from utils.data_utils import get_condition_vector_dual
 
 
 
@@ -166,6 +167,11 @@ if config["condition_type"] == "dual":
 elif config["condition_type"] == "mood":
     #include only mood if using single-conditioning
     filename = f"generated_{args.mood}.png"
+
+#altering the image size before it is saved so that way the output of the image in the GUI is bigger
+#convert NumPy array to PIL Image and resize it
+#generated_image = Image.fromarray((generated_image).astype(np.uint8))
+#generated_image = generated_image.resize((512, 512),  Image.NEAREST)
 
 #join directory and filename into a full path
 save_path = os.path.join(args.save_dir, filename)

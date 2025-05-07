@@ -21,7 +21,7 @@ import pandas as pd
 import torch
 from torch.utils.data import Dataset
 from torchvision import transforms
-from utils.dataset import one_hot_encode
+#from utils.data_utils import one_hot_encode
 from PIL import Image
 import torch.nn.functional as F
 import yaml

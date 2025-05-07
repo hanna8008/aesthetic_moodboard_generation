@@ -44,7 +44,7 @@ def generate_and_return_image(mood, color):
         )
 
         #construct the expected path to the output image
-        image_path = os.path.join(OUTPUT_PATH, f"{mood}_{color}.png")
+        image_path = os.path.join(OUTPUT_PATH, f"generated_{mood}_{color}.png")
 
         #if the file was created, return its path (to be displayed)
         if os.path.exists(image_path):

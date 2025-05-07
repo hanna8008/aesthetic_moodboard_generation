@@ -23,12 +23,12 @@ project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(project_root)
 
 # -- Import custom modules ---
-from utils.dataset import load_dataset
+from utils.data_utils import load_dataset
 from utils.train_utils import cvae_loss_function, save_model, plot_losses
 from model.cvae import CVAE 
 import matplotlib.pyplot as plt
 import numpy as np
-from utils.dataset import get_condition_vector_dual
+from utils.data_utils import get_condition_vector_dual
 
 
 

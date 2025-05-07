@@ -22,7 +22,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from model.cvae import CVAE
-from utils.dataset import get_condition_vector_dual
+from utils.data_utils import get_condition_vector_dual
 
 
 
