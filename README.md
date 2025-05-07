@@ -137,7 +137,7 @@ The GUI is built using [Gradio](https://www.gradio.app/) and allows users to int
 
 This image shows how the generator improves over training epochs (mood: *dreamy*, color: *blue*):
 
-![Training Progress](outputs/generated/training_progress_dreamy_blue.png)
+![Training Progress](../outputs/generated/training_progress_dreamy_blue.png)
 
 ---
 
