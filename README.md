@@ -60,7 +60,7 @@ This project trains a Conditional Variational Autoencoder (CVAE) to generate **b
 │   ├── train_cvae.py                   # CVAE training script
 │   └── generate.py                     # Image generation script (from terminal)
 ├── utils/
-│   ├── dataset.py                      # Custom dataset class
+│   ├── data_utils.py                   # Custom dataset class
 │   └── train_utils.py                  # Losses, plots, and saving
 ├── gui.py                              # GUI definition
 ├── run_gui.sh                          # Launch script for GUI
