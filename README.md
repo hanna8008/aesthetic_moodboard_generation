@@ -71,16 +71,16 @@ This project trains a Conditional Variational Autoencoder (CVAE) to generate **b
 
 ---
 
-## Accessing and Running Locally or on Quest
+## Accessing and Running on Quest
 * Users will not need to retrain the model. All evaluation will be done using the pre-trained model checkpoint and GUI.
 
-### 1. Clone the Repo into local terminal or Quest
+### 1. Clone the Repo into Quest
 ```bash
 git clone https://github.com/hanna8008/aesthetic_moodboard_generation.git
 cd aesthetic_moodboard_generation
 ```
 
-### 2. If logging into Queset, Log into Quest
+### 2. Log into Quest
 ```bash
 ssh -X your_netid@login.quest.northwestern.edu
 ```
@@ -113,12 +113,7 @@ This will:
 
 > Make sure you're on a login node with GUI support and have used 'ssh -X'
 
-### 5a. Click on Public Link in Local
-```bash
-Running on public URL: https://69879410cd4816eefb.gradio.live
-```
-
-### 5b. "Open Browser" in Quest
+### 5a. Access GUI online via "Open Browser" button in Quest 
 ```bash
 Lower right hand corner, click "Open in Browser" button
 ```
