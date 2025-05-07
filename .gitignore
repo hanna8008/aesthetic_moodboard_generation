@@ -22,7 +22,10 @@ aesthetic_moodboard_generation.git.bfg-report/
 
 
 # Ignore model output files and logs
-outputs/
+outputs/*
+!outputs/generated/
+!outputs/generated/training_progress_dreamy_blue.png
+!outputs/logs/train_2176187.log
 checkpoints/
 *.pth
 
