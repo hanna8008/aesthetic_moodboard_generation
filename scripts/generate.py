@@ -12,6 +12,7 @@ sys.path.append(project_root)
 
 from model.cvae import CVAE
 from utils.dataset import one_hot_encode
+from utils.dataset import get_condition_vector_dual
 
 # --- Parse Arguments ---
 parser = argparse.ArgumentParser(description="Generate image from mood and color conditions using trained CVAE.")
@@ -63,8 +64,8 @@ generated_image = np.transpose(generated_image, (1, 2, 0))
 
 # --- Save Image ---
 os.makedirs(args.save_dir, exist_ok=True)
-#filename = f"{args.mood}_{args.color}.png"
-filename = f"{args.mood}.png"
+filename = f"{args.mood}_{args.color}.png"
+#filename = f"{args.mood}.png"
 save_path = os.path.join(args.save_dir, filename)
 
 plt.imsave(save_path, generated_image)

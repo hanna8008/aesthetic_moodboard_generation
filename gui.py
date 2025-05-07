@@ -65,10 +65,10 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="pink", secondary_hue="rose")) a
     
     generate_button = gr.Button("Generate Image")
     output_image = gr.Image(
-        type="numpy", 
+        type="filepath", 
         label="Your Generated Art",
-        height=384,
-        width=384,
+        height=512,
+        width=512,
         show_label=True)
 
     generate_button.click(
