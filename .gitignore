@@ -1,45 +1,108 @@
-#Ignore raw image dataset
+# -----------------------------------------------------------
+# .gitignore for CVAE Moodboard Project
+# -----------------------------------------------------------
+# 
+# This file tells Git which files/folders to ignore (not track),
+# helping avoid uploading large files, cache files, and contain
+# privacy matters.
+
+
+
+# --- ignore full raw dataset folder (too large for Git) ---
 data/pexels-110k-512p-min-jpg/
+
+
+
+# --- ignore generated images adn model ---
+#folder with generated sample images
 outputs/generated
+
+#model checkpoint files (large + recreated during training)
 outputs/checkpoints
+
+
+
+# -- ignore Python bytecode and cached files ---
+#compiled Python bytecode files
 *.pyc
+
+#Python cache folders for each module
 __pycache__/
+
+
+
+# -- ignore virtual envrionment folders
+#Python virtual envrionment (can be recreated locally)
 venv/
-# Ignore massive image/data folders
+
+
+
+# --- ignore intermediate filtered dataset images ---
+#generated from preprocessing, very large
 data/filtered_images/
-data/pexels-110k-512p-min-jpg/
+
+
+
+# --- ignore large zip files or archies ---
 *.zip
 
-# Ignore big generated files
+
+
+
+# --- ignore generated CSV dataset ---
+#labeled metadata file (can be regenerated)
 data/filtered_mood_color_dataset.csv
 
-# Ignore BFG leftovers
+
+
+
+# --- ignore Git history cleanup tool output
+#BFG Repo Cleaner reports (from removing large history)
 *.bfg-report
 
-# Ignore temp Git metadata and cleanup reports
+
+
+# --- ignore temporary Git cleanup folders ---
 aesthetic_moodboard_generation.git/
 aesthetic_moodboard_generation.git.bfg-report/
 
 
-# Ignore model output files and logs
+
+# --- ignore general model outputs but keep specific files ---
+#ignore all files in outputs/
 outputs/*
+#... except the generated image folder
 !outputs/generated/
+#keep progress collage
 !outputs/generated/training_progress_dreamy_blue.png
+#keep specific training log file
 !outputs/logs/train_2176187.log
+
+#another model save folder (if used)
 checkpoints/
+#PyTorch model weight files
 *.pth
 
-# Python junk
-__pycache__/
+
+
+# --- misc system + Python clutter ---
 *.pyc
+#older Python compiled files
 *.pyo
+#Mac system file that can sneak in
 .DS_Store
 
-# Conda/venv environment files
+
+
+# --- envrionment config files ---
+#dotenv folder
 .env/
+#another possible name for virtual envrioment 
 .venv/
+#direnv config
 .envrc
 
-# Jupyter temp
+
+
+# --- ignore jupyter auto-save files ---
 .ipynb_checkpoints/
-data/filtered_mood_color_dataset.csv
