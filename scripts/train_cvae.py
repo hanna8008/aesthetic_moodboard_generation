@@ -118,8 +118,9 @@ for epoch in range(config["num_epochs"]):
     model.train()
 
     if (epoch + 1) % config["save_every"] == 0:
-        os.makedirs(os.path.dirname(config["checkpoint_path"]), exist_ok=True)
-        save_model(model, config["checkpoint_path"])
+        epoch_path = f"outputs/checkpoints/cvae_dual_epoch_{epoch+1}.pth"
+        save_model(model, epoch_path)
+
 
     # --- Save Progress Image ---
     if (epoch + 1) % 25 == 0:
@@ -147,6 +148,24 @@ for epoch in range(config["num_epochs"]):
 
 # --- Save the Final Trained Model ---
 save_model(model, config["checkpoint_path"])
+
+# --- Save preview images for selected mood-color pairs ---
+model.eval()
+test_combos = [("dreamy", "blue"), ("natural", "green"), ("romantic", "red")]
+
+for mood, color in test_combos:
+    z = torch.randn(1, config["latent_dim"]).to(device)
+    condition = get_condition_vector_dual(mood, color, config).unsqueeze(0).to(device)
+
+    with torch.no_grad():
+        output = model.decode(z, condition)
+        img = torch.sigmoid(output).view(3, 64, 64).cpu().numpy()
+
+    img_path = f"../outputs/generated/progress_cvae_moodboard_generator_e{epoch+1}_{mood}_{color}.png"
+    plt.imsave(img_path, np.transpose(img, (1, 2, 0)))
+    print(f"Saved: {img_path}")
+
+
 
 # --- Plot and Save Losses ---
 plot_losses(losses, save_path=os.path.join(config["log_dir"], "training_loss.png"))

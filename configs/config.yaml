@@ -75,7 +75,7 @@ num_epochs: 200
 #step size used by the optimizer (too high = unstable, too low = slow)
 learning_rate: 0.001
 #save a checkpoint model every N epochs (useful for backup + resuming)
-save_every: 20
+save_every: 25
 
 # --- Output Paths ---
 #root folder where all outputs (checkpoints, logs, generations) go

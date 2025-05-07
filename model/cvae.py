@@ -50,6 +50,7 @@ class CVAE(nn.Module):
         #debugging aid: print architecture setup on init
         #print(f"CVAE initialized with input_dim={input_dim}, cond_dim={condition_dim}, latent_dim={latent_dim}")
 
+
         # --- Encoder ---
         #input: concatenation of (flattened image + condition vector)
         #project it down to a smaller hidden representation
@@ -64,11 +65,13 @@ class CVAE(nn.Module):
             nn.ReLU()
         )
 
+
         #latent mean and log-variance: two layers that generate parameters for the latent distribution
         #predicts the mean of z
         self.mu = nn.Linear(256, latent_dim)
         #predicts log(variance) of z (used to get std)
         self.logvar = nn.Linear(256, latent_dim)
+
 
         # --- Decoder ---
         #input: concatenation of (latent vector z + condition vector)
@@ -127,7 +130,11 @@ class CVAE(nn.Module):
         Samples a latent variable z using the reparameterization: z = mu + std * eps, 
         so we can backprop through random sampling
 
-        z = mu + std * eps where eps ~ N(0, 1)
+        What reparameterization does:
+        Tricks to sample a latent vector z. So instead of sampling z randomly (which would stop gradients from flowing),
+        we rewrite the sampling as: z = mu + std * eps where eps ~ N(0, 1)
+
+        This lets the model "pretend" it's sampling, but in a way that still allows learning
 
         Allows gradients to pass through random smapling during training.
 
