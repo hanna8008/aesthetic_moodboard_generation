@@ -65,8 +65,8 @@ def generate_and_return_image(mood, color):
 with gr.Blocks(theme=gr.themes.Soft(primary_hue="pink", secondary_hue="rose")) as demo:
     #display a centered title and subtitleusing HTML + Markdown
     gr.Markdown(
-        "<h1 style='text-align: center; color: #5c4a4a;'> Aesthetic Image Generator </h1>"
-        "<p style='text-align: center; color: #5c4a4a;'> Create Art with Your Mood + Color </p>"
+        "<h1 style='text-align: center; color: #5c4a4a;'> Abstract Aesthetic Image Generator </h1>"
+        "<p style='text-align: center; color: #5c4a4a;'> Create Art based on Mood + Color </p>"
     )
 
     #layout: row for two dropdowns side by side
@@ -79,7 +79,7 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="pink", secondary_hue="rose")) a
     #create a button the user clicks to trigger image generation
     generate_button = gr.Button("Generate Image")
     
-    """#create an output image component to display the result
+    #create an output image component to display the result
     output_image = gr.Image(
         #return the filepath from the function
         type="filepath", 
@@ -88,15 +88,8 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="pink", secondary_hue="rose")) a
         #display dize
         height=512,
         width=512,
-        show_label=True)"""
-    with gr.Row(align="center"):
-        output_image = gr.Image(
-            type="filepath", 
-            label="Your Generated Art",
-            height=512,
-            width=512,
-            show_label=True
-        )
+        show_label=False)
+
 
 
     #define what happens when the button is clicked:
