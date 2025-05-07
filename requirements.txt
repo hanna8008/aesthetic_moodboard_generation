@@ -6,4 +6,4 @@ numpy
 Pillow
 pyyaml
 tqdm
-gradio
+gradio==3.50.2
