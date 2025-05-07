@@ -96,12 +96,12 @@ This will:
 * Create a Conda envrionment called 'moodgen'
 * Install all required packages from 'requirements.txt'
 
-To activate manually later:
+### 4. Activate Envrionment:
 ```bash
 conda activate moodgen
 ```
 
-### 4. Run the GUI
+### 5. Run the GUI
 ```bash
 bash run_gui.sh
 ```
