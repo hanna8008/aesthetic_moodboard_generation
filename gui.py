@@ -79,7 +79,7 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="pink", secondary_hue="rose")) a
     #create a button the user clicks to trigger image generation
     generate_button = gr.Button("Generate Image")
     
-    #create an output image component to display the result
+    """#create an output image component to display the result
     output_image = gr.Image(
         #return the filepath from the function
         type="filepath", 
@@ -88,7 +88,16 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="pink", secondary_hue="rose")) a
         #display dize
         height=512,
         width=512,
-        show_label=True)
+        show_label=True)"""
+    with gr.Row(align="center"):
+        output_image = gr.Image(
+            type="filepath", 
+            label="Your Generated Art",
+            height=512,
+            width=512,
+            show_label=True
+        )
+
 
     #define what happens when the button is clicked:
     #it calls 'generate_and_return_image()' with mood and color,
