@@ -100,4 +100,4 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="pink", secondary_hue="rose")) a
     )
 
 #launch the web interface in a local browser tab
-demo.launch()
+demo.launch(share=True)
