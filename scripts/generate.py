@@ -1,10 +1,17 @@
 # -----------------------------------------------------------
-# CVAE Training Script
+# CVAE Image Generation Script
 # -----------------------------------------------------------
 #
-# Trains a CVAE using mood and/or color-labeled image data. Loads config
-# settings, builds the model, runs training, and saves the model + logs
-# to output folders
+# This script uses a trained Conditional Variational Autoencoder (CAVE) to
+# generate a new image based on user-provided mood and/or color conditions.
+#
+# It loads the trained model and config settings, prepares the conditioning 
+# vector, samples a random latent vector, decodes the output, and saves the
+# resulting aesthetic image to the specified output folder.
+#
+# Supports;
+# - single-label conditioning (for mood; future = color)
+# - dual-label conditioning (mood + color)
 
 
 # --- Imports ---
