@@ -4,7 +4,7 @@
 
 ## Overview
 
-**MoodBoard Generator** is an AI-powered image generation tool that creates **abstract aesthetic visuals** based on two simple inputs: a **mood** (e.g., "dreamy", "romantic") and a **color theme** (e.g., "blue", "earthy"). Instead of producing photorealistic scenes, it generates **blurred, emotional color textures** — like visual vibes — that reflect how a specific mood-color pairing might *feel*.
+**MoodBoard Generator** is an AI-powered image generation tool that creates **abstract aesthetic visuals** based on two simple inputs: a **mood** (e.g., "dreamy", "romantic") and a **color theme** (e.g., "blue", "earthy"). Instead of producing photorealistic scenes, it generates **blurred, emotional color textures**, like visual vibes, that reflect how a specific mood-color pairing might *feel*.
 
 This project was designed for creators, designers, and moodboard lovers who want to **visually represent an emotional tone** or build aesthetic content foundations.
 
