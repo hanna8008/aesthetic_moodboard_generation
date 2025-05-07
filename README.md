@@ -96,12 +96,12 @@ This will:
 * Create a Conda envrionment called 'moodgen'
 * Install all required packages from 'requirements.txt'
 
-### 4. Activate Envrionment:
+#### To Activate the envrionment manually in the future:
 ```bash
 conda activate moodgen
 ```
 
-### 5. Run the GUI
+### 4. Run the GUI
 ```bash
 bash run_gui.sh
 ```
@@ -112,6 +112,16 @@ This will:
 * Display the generated image in a pop-up window
 
 > Make sure you're on a login node with GUI support and have used 'ssh -X'
+
+### 5a. Click on Public Link in Local
+```bash
+Running on public URL: https://69879410cd4816eefb.gradio.live
+```
+
+### 5b. "Open Browser" in Quest
+```bash
+Lower right hand corner, click "Open in Browser" button
+```
 
 ---
 
