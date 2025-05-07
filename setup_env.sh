@@ -1,15 +1,31 @@
 #!/bin/bash
 
+# -----------------------------------------------------------
+# Setup Script for CVAE Conda Environment
+# -----------------------------------------------------------
+#
+# This script sets up a Python 3.9 Conda envrionment named "moodgen"
+# and installs all required Python packages listed in requirements.txt.
+# Designed for use on Quest or any system with Anaconda installed.
+
+
+
 echo "Setting up CVAE Moodboard Environment..."
 
-# Fix: No spaces around "="
+
+# --- Set Envrionment Name
 ENV_NAME="moodgen"
 
-# 0. Load Conda (required on Quest)
+
+
+# --- Step 0: Load Conda Module ---
+#ensures the 'conda' command is available in this shell session
 module purge
 module load anaconda3
 
-# 1. Create Conda Environment (only if it doesn't already exist)
+
+
+# --- Step 1: Create Conda Envrionment (if it doesn't already exist) ---
 if conda info --envs | grep -q "$ENV_NAME"; then
     echo "Conda environment '$ENV_NAME' already exists. Skipping creation."
 else
@@ -17,16 +33,24 @@ else
     conda create -n $ENV_NAME python=3.9 -y
 fi
 
-# 2. Activate Environment
+
+
+# --- Step 2: Activate the Envrionment ---
+#this allows pip and Python commands to apply to 'moodgen'
 echo "Activating Environment..."
 source $(conda info --base)/etc/profile.d/conda.sh
 conda activate $ENV_NAME
 
-# 3. Install Requirements
+
+
+# --- Step 3: Install Required Python Packages ---
+#upgrade pip and install all dependencies from requirements.txt
 echo "Installing Python Packages from requirements.txt..."
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# 4. Success Message
+
+
+# --- Step 4: Confirmation Message ---
 echo "Environment '$ENV_NAME' setup complete!"
 echo "To activate it later, run: conda activate $ENV_NAME"
