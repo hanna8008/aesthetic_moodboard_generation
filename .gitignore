@@ -77,6 +77,8 @@ outputs/*
 !outputs/generated/training_progress_dreamy_blue.png
 #keep specific training log file
 !outputs/logs/train_2176187.log
+#keep the eda images
+!outputs/eda/
 
 #another model save folder (if used)
 checkpoints/
