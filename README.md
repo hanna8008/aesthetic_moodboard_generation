@@ -1,5 +1,8 @@
 # Visualizing Vibes: Abstract Aesthetic Image Generation from Mood + Color Using a Conditional VAE
 
+### Best Generated Image
+[Best Generated Image](#mood-dreamy--color-blue)
+
 ### How to Run the GUI and See Image Output:
 [Accessing and Running on Quest](#accessing-and-running-on-quest)
 
