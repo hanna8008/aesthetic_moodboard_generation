@@ -59,7 +59,7 @@ These images shows an example of the top 3 dominant colors extracted from a rand
 
 ![Dominant Colors](outputs/eda/dominant_colors_image_abstract-painting-acrylic-art-1660193.jpg.png)
 ![Dominant Colors](outputs/eda/dominant_colors_image_adventure-backpack-daylight-3002130.jpg.png)
-![Dominant Colors](outputs/eda/dominant_colors_image_arches-architecture-building-2412443.jpg.png.png)
+![Dominant Colors](outputs/eda/dominant_colors_image_arches-architecture-building-2412443.jpg.png)
 
 ---
 
