@@ -82,6 +82,8 @@ outputs/*
 
 #keep checkpoints files
 !outputs/checkpoints/
+!outputs/checkpoints/**
+
 #PyTorch model weight files
 *.pth
 
