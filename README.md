@@ -31,7 +31,48 @@ This project trains a Conditional Variational Autoencoder (CVAE) to generate **b
 
 ---
 
+---
+
 ## Exploratory Data Analysis (EDA)
+
+This section highlights the visual and statistical analysis of the Pexels 110k aesthetic dataset to understand its structure, color dynamics, and metadata distribution.
+
+This image shows a preview of the structured metadata extracted from `attributes_df.json`:
+
+![Attributes Preview](outputs/eda/attributes_preview.png)
+
+---
+
+This image shows the brightness distribution across all images in the dataset:
+
+![Brightness Distribution](outputs/eda/distribution_of_image_brightness.png)
+
+---
+
+This image shows the size and aspect ratio distribution across images:
+
+![Image Size Distribution](outputs/eda/distribution_of_image_sizes.png)
+
+---
+
+These images shows an example of the top 3 dominant colors extracted from a randomly selected image using KMeans clustering:
+
+![Dominant Colors](outputs/eda/dominant_colors_image_abstract-painting-acrylic-art-1660193.jpg.png)
+![Dominant Colors](outputs/eda/dominant_colors_image_adventure-backpack-daylight-3002130.jpg.png)
+![Dominant Colors](outputs/eda/dominant_colors_image_arches-architecture-building-2412443.jpg.png.png)
+
+---
+
+This image shows the 20 most common visual tags applied across the dataset:
+
+![Top Tags](outputs/eda/top_20_most_common_tags.png)
+
+---
+
+This image shows how the images were grouped by visual similarity based on extracted feature vectors:
+
+![Image Clustering](outputs/eda/image_clusters_by_visual_similarity.png)
+
 
 ---
 
