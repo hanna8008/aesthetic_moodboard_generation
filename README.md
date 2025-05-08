@@ -2,6 +2,27 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [What This Project Actually Does](#what-this-project-actually-does)
+- [What You Can Use This For](#what-you-can-use-this-for)
+- [Model Architecture](#model-architecture)
+- [Folder Structure](#folder-structure)
+- [Accessing and Running on Quest](#accessing-and-running-on-quest)
+- [Extra Criteria - GUI Overview](#extra-criteria---gui-overview)
+- [Training Progress Examples](#training-progress-examples)
+- [Training Loss Graph: Epochs = 200](#training-loss-graph-epochs--200)
+- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+- [Data Preparation & Transfer](#data-preparation--transfer)
+- [Model Training on Quest (Northwestern Quest)](#model-training-on-quest-northwestern-quest)
+- [Future Improvements](#future-improvements)
+- [Additional Notes](#additional-notes)
+- [Image Source](#image-source)
+- [References and Tools Used](#references-and-tools-used)
+
+---
+
 ## Overview
 
 **MoodBoard Generator** is an AI-powered image generation tool that creates **abstract aesthetic visuals** based on two simple inputs: a **mood** (e.g., "dreamy", "romantic") and a **color theme** (e.g., "blue", "red"). Instead of producing photorealistic scenes, it generates **blurred, emotional color textures**, like visual vibes, that reflect how a specific mood-color pairing might *feel*.
