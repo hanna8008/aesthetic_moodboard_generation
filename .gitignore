@@ -17,8 +17,8 @@ data/pexels-110k-512p-min-jpg/
 #folder with generated sample images
 outputs/generated
 
-#model checkpoint files (large + recreated during training)
-outputs/checkpoints
+
+
 
 
 
