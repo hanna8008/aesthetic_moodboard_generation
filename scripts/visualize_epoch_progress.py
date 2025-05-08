@@ -22,10 +22,10 @@ import matplotlib.pyplot as plt
 
 # --- Path and Settings ---
 #directory containing the saved progress images from training
-progress_dir = "../outputs/generated"
+progress_dir = "outputs/generated"
 
 #output file name for the final visualization (grid of images)
-output_image_name = "training_progress_dreamy_blue.png"
+output_image_name = "training_progress_natural_green.png"
 
 #define the training epochs you want to visualize progress at 
 #example: [25, 50, 75, ..., 200]
@@ -43,7 +43,7 @@ labels = []
 #loop through each selected epoch and load the corresponding image
 for epoch in epochs:
     #construct the expected filename for the generated image at this epoch
-    filename = f"progress_cvae_moodboard_generator_e{epoch}_dreamy_blue.png"
+    filename = f"progress_e{epoch}_natural_green.png"
     #full path to image
     img_path = os.path.join(progress_dir, filename)
 
@@ -82,7 +82,7 @@ for i, (img, label) in enumerate(zip(images, labels)):
     axs[i].set_title(label, fontsize=8, pad=6)
 
 #add a suptitle above all subplots
-plt.suptitle("CVAE Training Progress: dreamy + blue", fontsize=14, y=1.05)
+plt.suptitle("CVAE Training Progress: natural + green", fontsize=14, y=1.05)
 
 #adjust layout to prevent overlapping titles/subplots
 plt.tight_layout()

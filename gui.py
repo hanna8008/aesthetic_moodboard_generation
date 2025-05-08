@@ -86,8 +86,8 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="pink", secondary_hue="rose")) a
         #label above the image
         label="Your Generated Art",
         #display dize
-        height=512,
-        width=512,
+        height=640,
+        width=640,
         show_label=False)
 
 

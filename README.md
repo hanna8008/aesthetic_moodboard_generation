@@ -74,18 +74,16 @@ This project trains a Conditional Variational Autoencoder (CVAE) to generate **b
 ## Accessing and Running on Quest
 * Users will not need to retrain the model. All evaluation will be done using the pre-trained model checkpoint and GUI.
 
-### 1. Clone the Repo into Quest
-```bash
-git clone https://github.com/hanna8008/aesthetic_moodboard_generation.git
-cd aesthetic_moodboard_generation
-```
-
-### 2. Log into Quest
+### 1. Log into Quest
 ```bash
 ssh -X your_netid@login.quest.northwestern.edu
 ```
 
->'-X' enables GUI support 
+### 2. Clone the Repo into Quest
+```bash
+git clone https://github.com/hanna8008/aesthetic_moodboard_generation.git
+cd aesthetic_moodboard_generation
+```
 
 ### 3. Setup the Conda Envrionment (First Time Only)
 ```bash
@@ -96,7 +94,7 @@ This will:
 * Create a Conda envrionment called 'moodgen'
 * Install all required packages from 'requirements.txt'
 
-#### To Activate the envrionment manually in the future:
+### 4. Activate the Moodgen Envrionment
 ```bash
 conda activate moodgen
 ```
@@ -127,7 +125,7 @@ The GUI is built using [Gradio](https://www.gradio.app/) and allows users to int
 ### Features:
 - **Dropdown Menus**: Select one of eight moods and eight color themes
 - **Generate Button**: Calls the backend script (`scripts/generate.py`) with the selected mood and color
-- **Output Preview**: Displays the generated image in real-time
+- **Output Preview**: Displays the generated image in real-time (although small, you can download it)
 - **Gradio UI**: Lightweight, web-based interface with soft, aesthetic styling
 
 ### How It Works:
@@ -138,11 +136,86 @@ The GUI is built using [Gradio](https://www.gradio.app/) and allows users to int
    ```
 ---
 
-## Training Progress Example
+## Training Progress Examples
 
 This image shows how the generator improves over training epochs (mood: *dreamy*, color: *blue*):
 
 ![Training Progress](outputs/generated/training_progress_dreamy_blue.png)
+
+This image shows how the generator improves over training epochs (mood: *romantic*, color: *red*):
+
+![Training Progress](outputs/generated/training_progress_romantic_red.png)
+
+This image shows how the generator improves over training epochs (mood: *natural*, color: *green*):
+
+![Training Progress](outputs/generated/training_progress_natural_green.png)
+
+---
+
+## Training Loss Graph: Epochs = 200
+
+The plot below illustrates the decrease in total CVAE training loss over 200 epochs. A sharp decline early in training is followed by gradual convergence, indicating that the model is learning stable latent representations and improving reconstruction quality over time.
+
+![Training Progress](outputs/logs/training_loss.png)
+
+---
+
+## Data Preparation & Transfer
+
+### Step 1: Filtering and Labeling
+
+The raw dataset (`pexels-110k-512p-min-jpg`) was filtered using `import_load_eda_data.ipynb` and `auto_label_mood_color.py`. These scripts:
+
+- Parsed image metadata from `attributes_df.json`
+- Matched visual tags to predefined **mood** and **color** keyword dictionaries
+- Saved the filtered results as:
+  - `data/filtered_mood_color_dataset.csv` — labeled metadata
+  - `data/filtered_images/` — images matching mood/color keywords
+
+### Step 2: Uploading to Quest (HPC)
+
+After preprocessing locally, the filtered dataset was transferred to Quest using `scp`:
+
+```bash
+# Upload the labeled CSV
+scp data/filtered_mood_color_dataset.csv <netid>@quest.it.northwestern.edu:/path/to/project/data/
+
+# Upload the filtered image folder
+scp -r data/filtered_images/ <netid>@quest.it.northwestern.edu:/path/to/project/data/
+```
+
+---
+
+## Model Training on Quest (Northwestern Quest)
+
+Training was performed on Quest using a 3D CVAE model
+
+### Setup Steps
+
+1. **Uploaded project files to Quest**, including:
+   - `scripts/train_cvae.py` (training logic)
+   - `configs/config.yaml` (training parameters)
+   - Filtered data: `data/filtered_mood_color_dataset.csv` and `data/filtered_images/`
+
+2. **Activated Conda environment** on Quest:
+
+```bash
+module purge
+module load anaconda3
+source $(conda info --base)/etc/profile.d/conda.sh
+conda activate moodgen
+```
+
+3. **Submitted a training job using shell script**:
+
+```bash
+bash train_cvae.sh
+```
+
+### Outputs Saved To:
+* `outputs/checkpoints/` — saved model checkpoints (e.g., cvae_dual_epoch_200.pth)
+* `outputs/generated/` — progress images at various training epochs
+* `outputs/logs/` — training loss visualizations
 
 ---
 
