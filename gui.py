@@ -48,7 +48,7 @@ def generate_and_return_image(mood, color):
 
         #if the file was created, return its path (to be displayed)
         if os.path.exists(image_path):
-            return image_path
+            return Image.open(image_path)
         else: 
             #if no file found, return an error message
             return f"Image not found: {image_path}"
@@ -82,7 +82,7 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="pink", secondary_hue="rose")) a
     #create an output image component to display the result
     output_image = gr.Image(
         #return the filepath from the function
-        type="filepath", 
+        type="pil", 
         #label above the image
         label="Your Generated Art",
         #display dize

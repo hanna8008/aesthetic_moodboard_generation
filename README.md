@@ -195,6 +195,8 @@ If that does not work or does not appear, another option is using the local URL 
 Click on the hyperlink that begins with "Running on local URL: https://127..."
 ```
 
+##**Please Note: Image Generation will take between 50 - 75 seconds**
+
 ---
 
 ## Extra Criteria - GUI Overview
