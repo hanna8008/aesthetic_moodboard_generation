@@ -82,6 +82,8 @@ ssh -X your_netid@login.quest.northwestern.edu
 ### 2. Clone the Repo into Quest
 ```bash
 git clone https://github.com/hanna8008/aesthetic_moodboard_generation.git
+```
+```bash
 cd aesthetic_moodboard_generation
 ```
 
