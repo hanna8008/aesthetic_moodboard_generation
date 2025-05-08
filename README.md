@@ -1,5 +1,8 @@
 # Visualizing Vibes: Abstract Aesthetic Image Generation from Mood + Color Using a Conditional VAE
 
+### How to Run the GUI and See Image Output:
+[Accessing and Running on Quest](#accessing-and-running-on-quest)
+
 ---
 
 ## Table of Contents
@@ -7,13 +10,13 @@
 - [Overview](#overview)
 - [What This Project Actually Does](#what-this-project-actually-does)
 - [What You Can Use This For](#what-you-can-use-this-for)
+- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
 - [Model Architecture](#model-architecture)
 - [Folder Structure](#folder-structure)
 - [Accessing and Running on Quest](#accessing-and-running-on-quest)
 - [Extra Criteria - GUI Overview](#extra-criteria---gui-overview)
 - [Training Progress Examples](#training-progress-examples)
 - [Training Loss Graph: Epochs = 200](#training-loss-graph-epochs--200)
-- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
 - [Data Preparation & Transfer](#data-preparation--transfer)
 - [Model Training on Quest (Northwestern Quest)](#model-training-on-quest-northwestern-quest)
 - [Future Improvements](#future-improvements)
@@ -308,8 +311,6 @@ https://www.kaggle.com/datasets/innominate817/pexels-110k-512p-min-jpg
 ---
 
 ## References and Tools Used:
-1. [Pexels 110k Dataset (Kaggle)](https://www.kaggle.com/datasets/innominate817/pexels-110k-512p-min-jpg)
-2. [CVAE baseline structure](https://github.com/unnir/cVAE)
-3. Northwestern’s EECS Autoencoders Lecture by Dr. D'Arcy
-4. [PyTorch Dataset Dataloader Guide (Kaggle)](https://www.kaggle.com/code/pinocookie/pytorch-dataset-and-dataloader)
-5. [Conditional VAE From Scratch - Medium](https://medium.com/@sofeikov/implementing-conditional-variational-auto-encoders-cvae-from-scratch-29fcbb8cb08f)
+1. Northwestern’s EECS Autoencoders Lecture by Dr. D'Arcy
+2. [Pexels 110k Dataset (Kaggle)](https://www.kaggle.com/datasets/innominate817/pexels-110k-512p-min-jpg)
+3. [Conditional VAE From Scratch - Medium](https://medium.com/@sofeikov/implementing-conditional-variational-auto-encoders-cvae-from-scratch-29fcbb8cb08f)
