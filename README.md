@@ -149,6 +149,9 @@ ssh -X your_netid@login.quest.northwestern.edu
 ```
 
 ### 2. Clone the Repo into Quest
+
+FYI: This can take around 3-5 minutes to fully clone
+
 ```bash
 git clone https://github.com/hanna8008/aesthetic_moodboard_generation.git
 ```
@@ -184,7 +187,12 @@ This will:
 
 ### 5a. Access GUI online via "Open Browser" button in Quest 
 ```bash
-Lower right hand corner, click "Open in Browser" button
+Click on the hyperlink that begins with "Running on public URL: https://...gradio.live"
+```
+
+If that does not work or does not appear, another option is using the local URL hyperlink
+```bash
+Click on the hyperlink that begins with "Running on local URL: https://127..."
 ```
 
 ---
