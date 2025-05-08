@@ -101,7 +101,7 @@ This will:
 conda activate moodgen
 ```
 
-### 4. Run the GUI
+### 5. Run the GUI
 ```bash
 bash run_gui.sh
 ```
