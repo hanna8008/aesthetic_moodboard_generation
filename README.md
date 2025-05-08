@@ -46,6 +46,13 @@ This project trains a Conditional Variational Autoencoder (CVAE) to generate **b
 
 ---
 
+## Best Generated Image
+### Mood: Dreamy | Color: Blue
+
+![Image Size Distribution](outputs/generated/progress_cvae_moodboard_generator_e200_dreamy_blue.png)
+
+---
+
 ## What You Can Use This For
 * Moodboard builders for designers and creatives
 * Branding explorations
