@@ -49,6 +49,10 @@ This project trains a Conditional Variational Autoencoder (CVAE) to generate **b
 ## Best Generated Image
 ### Mood: Dreamy | Color: Blue
 
+<p align="center">
+  <img src="outputs/generated/progress_cvae_moodboard_generator_e200_dreamy_blue.png" alt="Best Generated Image" width="300"/>
+</p>
+
 ![Image Size Distribution](outputs/generated/progress_cvae_moodboard_generator_e200_dreamy_blue.png)
 
 ---
