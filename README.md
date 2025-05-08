@@ -1,4 +1,4 @@
-# Visualizing Vibes: Abstract Aesthetic Image Generation from Mood and Color Using a Conditional VAE
+# Visualizing Vibes: Abstract Aesthetic Image Generation from Mood + Color Using a Conditional VAE
 
 ---
 
@@ -26,8 +26,12 @@ This project trains a Conditional Variational Autoencoder (CVAE) to generate **b
 * Moodboard builders for designers and creatives
 * Branding explorations
 * Generative design palette development
-* AI x emotion visualizations
+* Emotion-based generative art
 * Lightweight aesthetic AI tools
+
+---
+
+## Exploratory Data Analysis (EDA)
 
 ---
 
@@ -87,16 +91,16 @@ git clone https://github.com/hanna8008/aesthetic_moodboard_generation.git
 cd aesthetic_moodboard_generation
 ```
 
-### 3. Setup the Conda Envrionment (First Time Only)
+### 3. Setup the Conda Environment (First Time Only)
 ```bash
 bash setup_env.sh
 ```
 
 This will:
-* Create a Conda envrionment called 'moodgen'
+* Create a Conda Environment called 'moodgen'
 * Install all required packages from 'requirements.txt'
 
-### 4. Activate the Moodgen Envrionment
+### 4. Activate the Moodgen Environment
 ```bash
 conda activate moodgen
 ```
@@ -107,7 +111,7 @@ bash run_gui.sh
 ```
 
 This will:
-* Activate the 'moodgen' envrionment
+* Activate the 'moodgen' Environment
 * Launch 'gui.py' with dropdown menus for mood and color
 * Display the generated image in a pop-up window
 
