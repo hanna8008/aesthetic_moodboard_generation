@@ -80,8 +80,8 @@ outputs/*
 #keep the eda images
 !outputs/eda/
 
-#another model save folder (if used)
-checkpoints/
+#keep checkpoints files
+!outputs/checkpoints/
 #PyTorch model weight files
 *.pth
 
